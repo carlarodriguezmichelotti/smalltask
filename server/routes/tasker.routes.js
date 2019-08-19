@@ -15,10 +15,18 @@ router.get('/task/:id', (req, res) => {
 		.catch(err => console.log('Error', err))
 })
 
+router.get('/my-tasks', (req, res) => {
+	Task.find()
+		.then(allTasks => res.json(allTasks))
+		.catch(err => console.log('Error', err))
+})
+
 router.post('/postTask', (req, res) => {
 	Task.create(req.body)
 		.then(theNewTask => res.json(theNewTask))
 		.catch(err => console.log('Error', err))
 })
+
+router.get('/how-it-works', (req, res) => {})
 
 module.exports = router
