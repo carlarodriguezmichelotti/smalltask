@@ -8,8 +8,9 @@ export default class Services {
 		})
 	}
 
-	signup = (username, password) => this.service.post('signup', { username, password })
+	signup = (username, password, imageUrl) => this.service.post('signup', { username, password, imageUrl})
 	login = (username, password) => this.service.post('login', { username, password })
 	logout = () => this.service.post('logout')
 	loggedin = () => this.service.get('loggedin')
+	handleUpload = theFile => this.service.post('/upload', theFile)
 }

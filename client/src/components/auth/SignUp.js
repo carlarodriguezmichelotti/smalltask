@@ -6,29 +6,54 @@ class Signup extends Component {
 		super(props)
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			imageUrl: ''
 		}
 		this.authServices = new AuthServices()
 	}
 
+	//Cambia la imagen en el state dinamicamente
+	handleFileUpload = e => {
+
+		this.setState({
+			...this.state,
+			file: e.target.files[0]
+		})
+		
+}
+
 	handleInputChange = e => {
-		const { name, value } = e.target
+		const { name, value, imageUrl} = e.target
 		this.setState({ [name]: value })
 	}
 
 	handleFormSubmit = e => {
 		e.preventDefault()
-		const { username, password } = this.state
-		this.authServices
-			.signup(username, password)
-			.then(theNewUser => {
-				this.setState({
-					username: '',
-					password: ''
-				})
-				this.props.setUser(theNewUser)
-				this.props.history.push('/')
-			})
+		const { username, password, imageUrl} = this.state
+
+		//SUbida de imagen
+		const uploadData = new FormData();
+
+		uploadData.append("imageUrl", this.state.file);
+
+		this.authServices.handleUpload(uploadData)
+				.then(response => this.setState({ imageUrl: response.data.secure_url }))
+				.then(x=> {
+					//Una vez subida la imagen enviamos el usuario al back y limpiamos el form y redireccionamos a index.
+							this.authServices
+								.signup(username, password, imageUrl)
+								.then(theNewUser => {
+									this.setState({
+										username: '',
+										password: '',
+										imageUrl: ''
+									})
+									this.props.setUser(theNewUser)
+									this.props.history.push('/')
+								})
+
+
+				})			
 			.catch(err => console.log(err))
 		//console.log(err.response.data.message))
 	}
@@ -36,12 +61,12 @@ class Signup extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<h1>Registro de usuario</h1>
+				<h1>Join Us</h1>
 				<form onSubmit={this.handleFormSubmit}>
-					Usuario: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
-					Contraseña: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} />{' '}
-					<br />
-					<input type='submit' value='Registrar' />
+					Username: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
+					Password: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} /> <br />
+        	Image: <input name="imageUrl" type="file" onChange={this.handleFileUpload} /><br/>
+					<input type='submit' value='Join SmallTask' />
 				</form>
 			</div>
 		)

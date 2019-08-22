@@ -34,6 +34,15 @@ class NavBar extends Component {
 						<nav>
 							<ul>
 								<li>
+									<Link to='/my-tasks'>My tasks</Link>
+								</li>
+								<li>
+									<Link to='/tasks'>Browse tasks</Link>
+								</li>
+								<li>
+									<Link to='/postTask'>New Task</Link>
+								</li>
+								<li>
 									<Link to='/'>Inicio</Link>
 								</li>
 								<li>
@@ -70,7 +79,10 @@ class NavBar extends Component {
 									<Link to='/login'>Inicio de sesión</Link>
 								</li>
 								<li>
-									<Link to='/tasks'>Tasks</Link>
+									<Link to='/tasks'>Browse tasks</Link>
+								</li>
+								<li>
+									<Link to='/how-it-works'>How it works</Link>
 								</li>
 								<li>
 									<small>Bienvenid@, {saludo}</small>
@@ -84,3 +96,6 @@ class NavBar extends Component {
 	}
 }
 export default NavBar
+
+
+

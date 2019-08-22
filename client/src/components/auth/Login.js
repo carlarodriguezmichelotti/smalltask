@@ -36,12 +36,11 @@ class Login extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<h1>Inicio de sesión de usuario</h1>
+				<h1>Log in</h1>
 				<form onSubmit={this.handleFormSubmit}>
-					Usuario: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
-					Contraseña: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} />{' '}
-					<br />
-					<input type='submit' value='Iniciar sesión' />
+					Username: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
+					Password: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} /> <br />
+					<input type='submit' value='Log in' />
 				</form>
 			</div>
 		)

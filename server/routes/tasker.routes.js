@@ -16,12 +16,14 @@ router.get('/task/:id', (req, res) => {
 })
 
 router.get('/my-tasks', (req, res) => {
-	Task.find()
-		.then(allTasks => res.json(allTasks))
+	console.log(req.user._id)
+	Task.find({creator: req.user._id})
+		.then(allTasks => {res.json(allTasks)})
 		.catch(err => console.log('Error', err))
 })
 
 router.post('/postTask', (req, res) => {
+	console.log(req.body)
 	Task.create(req.body)
 		.then(theNewTask => res.json(theNewTask))
 		.catch(err => console.log('Error', err))
