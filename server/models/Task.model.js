@@ -16,10 +16,9 @@ const TaskSchema = new Schema(
 				ref: 'Offer'
 			}
 		],
+		status: { type: String, enum: ['OPEN', 'ASSIGNED', 'COMPLETED'] },
 		date: { type: Date, required: true },
-		place:{latitude: {type: Number, require: true},
-					longitud: {type: Number, require: true}
-				}
+		place: { latitude: { type: Number, require: true }, longitude: { type: Number, require: true } }
 	},
 	{
 		timestamps: {

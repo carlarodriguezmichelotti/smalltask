@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button'
 
-const TaskCard = ({ title, description, budget, _id }) => {
+const MyTaskCard = ({ title, description, budget, _id }) => {
 	return (
 		<div className='col-md-3'>
 			<article className='task-card'>
@@ -11,9 +11,9 @@ const TaskCard = ({ title, description, budget, _id }) => {
 				<p>{description}</p>
 				<p>{budget}</p>
 
-				<Link to={`/task/${_id}`}>
+				<Link to={`/task-offers`}>
 					<Button variant='dark' size='sm' block>
-						Details
+						See Offers
 					</Button>
 				</Link>
 				<hr />
@@ -22,4 +22,4 @@ const TaskCard = ({ title, description, budget, _id }) => {
 	)
 }
 
-export default TaskCard
+export default MyTaskCard

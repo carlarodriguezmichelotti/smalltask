@@ -1,25 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import Button from 'react-bootstrap/Button'
 
-const TaskCard = ({ title, description, budget, _id }) => {
+const OfferAssignedCard = ({ bidderusername, description, budget, _id }) => {
+	console.log(_id)
 	return (
 		<div className='col-md-3'>
 			<article className='task-card'>
-				<h4>{title}</h4>
+				<p>Posted by: {bidderusername}</p>
 				<p>{description}</p>
 				<p>{budget}</p>
 
-				<Link to={`/task/${_id}`}>
-					<Button variant='dark' size='sm' block>
-						Details
-					</Button>
-				</Link>
+				<Link to={`/offer-details/${_id}`}>See offer</Link>
+
 				<hr />
 			</article>
 		</div>
 	)
 }
 
-export default TaskCard
+export default OfferCard
