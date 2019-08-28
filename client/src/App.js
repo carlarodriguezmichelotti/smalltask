@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import TasksList from './components/TasksList'
 import MyTaskList from './components/MyTaskList'
 import TaskDetail from './components/TaskDetail'
+import TaskAssignedList from './components/TaskAsignedList'
 import TaskForm from './components/TaskForm'
 import Profile from './components/Profile'
 import Home from './components/Home'
@@ -89,7 +90,7 @@ class App extends Component {
 							<Route path='/task-offers' exact component={OffersList} />
 							<Route path='/offer-details/:id' exact component={OfferDetails} />
 							<Route path='/accept-offer/:taskid/:bidderid' exact component={OffersList} />
-
+							<Route path='/assigned-tasks' exact render={match => <TaskAssignedList {...match}></TaskAssignedList>} />
 							{/* <Route
 								path='/postOffer/'
 								exact

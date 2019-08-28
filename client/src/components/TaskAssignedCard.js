@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-const OfferAssignedCard = ({ bidderusername, description, budget, _id }) => {
+const TaskAssignedCard = ({ bidderusername, description, budget, _id, status, offerinfo }) => {
 	console.log(_id)
 	return (
 		<div className='col-md-3'>
 			<article className='task-card'>
 				<p>Posted by: {bidderusername}</p>
 				<p>{description}</p>
-				<p>{budget}</p>
+				<p>TASK PRICE: {budget}</p>
 
-				<Link to={`/offer-details/${_id}`}>See offer</Link>
+				<Button>{status}</Button>
+
+				<Link to={`/tasks`}>Back</Link>
 
 				<hr />
 			</article>
@@ -19,4 +21,4 @@ const OfferAssignedCard = ({ bidderusername, description, budget, _id }) => {
 	)
 }
 
-export default OfferCard
+export default TaskAssignedCard

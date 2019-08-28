@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Services from '../services/task.services'
+import OfferFormModal from './OfferFormModal'
 
-import OfferForm from './OfferForm'
+// import OfferForm from './OfferForm'
 
 class TaskDetail extends Component {
 	constructor(props) {
@@ -25,6 +26,9 @@ class TaskDetail extends Component {
 	}
 
 	render() {
+		let smClose = () => this.setState({ smShow: false })
+		// let lgClose = () => this.setState({ lgShow: false })
+
 		return (
 			<div className='container'>
 				<article className='coaster-detail'>
@@ -43,13 +47,23 @@ class TaskDetail extends Component {
 							<Link className='btn btn-big btn-dark' to='/tasks'>
 								Back
 							</Link>
-							<Button variant='dark' size='sm' block>
+							<Button onClick={() => this.setState({ smShow: true })} variant='dark' size='sm' block>
 								Make an offer
 							</Button>
 
 							{console.log(this.props.userInSession)}
 							{this.state.task.creator && (
-								<OfferForm
+								// <OfferForm
+
+								// 	userInSession={this.props.userInSession}
+								// 	taskowner={this.state.task.creator.username}
+								// 	taskid={this.state.task._id}
+								// />
+
+								<OfferFormModal
+									show={this.state.smShow}
+									onHide={smClose}
+									setUser={this.props.setUser}
 									userInSession={this.props.userInSession}
 									taskowner={this.state.task.creator.username}
 									taskid={this.state.task._id}

@@ -33,7 +33,7 @@ class NavBar extends Component {
 					{/* <header className='menu'> */}
 					{
 						<>
-							<Navbar bg='transparent'>
+							<Navbar className='navstyle' bg='transparent'>
 								<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
 								<Nav className='navbarcolor'>
 									<Nav.Link href='/profile'>Profile</Nav.Link>

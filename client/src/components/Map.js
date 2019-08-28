@@ -80,5 +80,6 @@ const mapStyles = {
 }
 
 export default GoogleApiWrapper({
-	apiKey: 'AIzaSyDOuDALvzBrOz-Y-iQxy8lPZKvl8yw9ZX4'
+	apiKey: `${process.env.REACT_APP_APPKEY}`
+	//'AIzaSyDOuDALvzBrOz-Y-iQxy8lPZKvl8yw9ZX4'
 })(MapContainer)

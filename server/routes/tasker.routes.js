@@ -41,6 +41,14 @@ router.get('/my-tasks', (req, res) => {
 		.catch(err => console.log('Error', err))
 })
 
+router.get('/assigned-tasks', (req, res) => {
+	Task.find({ status: 'ASSIGNED' })
+		.then(allTasks => {
+			res.json(allTasks)
+		})
+		.catch(err => console.log('Error', err))
+})
+
 router.get('/task-offers', (req, res) => {
 	Offer.find({ taskowner: req.user.username })
 		.then(allOffers => {

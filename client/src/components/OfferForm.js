@@ -37,7 +37,7 @@ class OfferForm extends Component {
 	render() {
 		return (
 			<>
-				<h4>Make an offer</h4>
+				{/* <h4>Make an offer</h4> */}
 
 				<hr />
 

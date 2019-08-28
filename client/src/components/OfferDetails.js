@@ -21,7 +21,16 @@ class OfferDetails extends Component {
 
 	redirectToTaskOffers = () => {
 		const { history } = this.props
-		if (history) history.push('/task-offers')
+		if (history) {
+			history.push('/assigned-tasks')
+		}
+	}
+
+	handleOfferClick = () => {
+		this.service
+			.deleteOffer(this.state.offer.taskid, this.state.offer.bidderid)
+			.then(this.redirectToTaskOffers())
+			.catch(err => console.log('Error', err))
 	}
 
 	toogleModal = () => {
@@ -40,13 +49,17 @@ class OfferDetails extends Component {
 					<p>DESCRIPTION: {this.state.offer.description}</p>
 				</article>
 
-				<button
+				{/* <button
 					onClick={() => {
-						this.service.deleteOffer(this.state.offer.taskid, this.state.offer.bidderid)
-						this.redirectToTaskOffers()
+						this.service.deleteOffer(this.state.offer.taskid, this.state.offer.bidderid), this.redirectToTaskOffers()
 					}}
 				>
 					Accept Offer
+				</button> */}
+
+				<button onClick={this.handleOfferClick()} offerinfo={this.state.offer}>
+					{' '}
+					Accept Offer{' '}
 				</button>
 			</div>
 		) : (

@@ -74,4 +74,7 @@ app.use('/', require('./routes/index.routes'))
 app.use('/api', require('./routes/auth.routes'))
 app.use('/api', require('./routes/tasker.routes'))
 app.use('/api', require('./routes/file-upload.routes'))
+app.use((req, res) => {
+	res.sendFile(__dirname + '/public/index.html')
+})
 module.exports = app
