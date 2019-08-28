@@ -68,7 +68,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.locals.title = 'Express - Generated with IronGenerator'
 
 //Base URL's
-app.use('/', require('./routes/index.routes'))
+
 app.use('/api', require('./routes/auth.routes'))
 app.use('/api', require('./routes/tasker.routes'))
 app.use('/api', require('./routes/file-upload.routes'))
