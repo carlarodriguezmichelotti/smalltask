@@ -18,7 +18,11 @@ const TaskSchema = new Schema(
 		],
 		status: { type: String, enum: ['OPEN', 'ASSIGNED', 'COMPLETED'] },
 		date: { type: Date, required: true },
-		place: { latitude: { type: Number, require: true }, longitude: { type: Number, require: true } }
+		place: {
+			latitude: { type: Number, require: true },
+			longitude: { type: Number, require: true },
+			address: { type: String, require: true }
+		}
 	},
 	{
 		timestamps: {

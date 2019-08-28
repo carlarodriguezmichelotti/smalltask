@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 import '../App.css'
 
@@ -10,8 +11,8 @@ const Home = () => {
 				<h2 className='profileQuote'>
 					Find the people with the skills <br></br> you need on SmallTask
 				</h2>
-				<Button className='homeMainButton' to='/signup'>
-					Get started
+				<Button className='homeMainButton'>
+					<Link to='/signup'>Get started</Link>
 				</Button>
 			</div>
 		</>

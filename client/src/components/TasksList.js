@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Services from '../services/task.services'
 import TaskCard from './TaskCard'
 import GoogleApiWrapper from './Map'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
 
 class TasksList extends Component {
 	constructor() {
@@ -27,20 +30,28 @@ class TasksList extends Component {
 	render() {
 		return (
 			<>
-				<h1>Listado de tasks</h1>
+				<Container>
+					<Row>
+						<br />
+						<br />
+						<Col sm={5}>
+							{this.props.userInSession}
 
-				{this.props.userInSession}
+							{this.state.tasks.map(task => (
+								<TaskCard key={task._id} {...task} />
+							))}
+						</Col>
 
-				{this.state.tasks.map(task => (
-					<TaskCard key={task._id} {...task} />
-				))}
-
-				{/* <div className='row task-list'>
+						{/* <div className='row task-list'>
 						{this.state.tasks.map(task => (
 							<TaskCard key={task._id} {...task} />
 						))}
 					</div> */}
-				<GoogleApiWrapper tasks={this.state.tasks} />
+						<Col>
+							<GoogleApiWrapper tasks={this.state.tasks} />
+						</Col>
+					</Row>
+				</Container>
 			</>
 		)
 	}

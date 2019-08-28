@@ -80,7 +80,8 @@ class TaskForm extends Component {
 								this.setState({
 									place: {
 										latitude: parseFloat(place.geometry.location.lat()),
-										longitude: parseFloat(place.geometry.location.lng())
+										longitude: parseFloat(place.geometry.location.lng()),
+										address: place.formatted_address
 									}
 								})
 							}}
