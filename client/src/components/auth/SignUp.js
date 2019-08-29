@@ -36,14 +36,13 @@ class Signup extends Component {
 
 		this.authServices
 			.handleUpload(uploadData)
-			.then(response =>
-				this.setState({ imageUrl: response.data.secure_url }, () => {
-					return this.state.imageUrl
-				})
-			)
+			.then(response => {
+				this.setState({ imageUrl: response.data.secure_url })
+				return response.data.secure_url
+			})
 			.then(x => {
-				console.log(x)
 				const imageUrl = x
+				console.log(x)
 				//Una vez subida la imagen enviamos el usuario al back y limpiamos el form y redireccionamos a index.
 				this.authServices.signup(username, password, imageUrl).then(theNewUser => {
 					this.setState({

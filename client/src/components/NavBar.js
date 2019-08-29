@@ -35,14 +35,24 @@ class NavBar extends Component {
 						<>
 							<Navbar className='navstyle' bg='transparent'>
 								<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
-								<Nav className='navbarcolor'>
-									<Nav.Link href='/profile'>Profile</Nav.Link>
-									<Nav.Link href='/tasks'>Browse tasks</Nav.Link>
-									<Nav.Link href='/my-tasks'>My tasks</Nav.Link>
-									<Nav.Link href='/postTask'>New Task</Nav.Link>
-									<Nav.Link onClick={this.logout}>Logout</Nav.Link>
+								<Nav className='justify-content-end' style={{ width: '100%' }}>
+									<Nav.Link className='nav-item' href='/profile'>
+										Profile
+									</Nav.Link>
+									<Nav.Link className='nav-item' href='/tasks'>
+										Browse tasks
+									</Nav.Link>
+									<Nav.Link className='nav-item' href='/my-tasks'>
+										My tasks
+									</Nav.Link>
+									<Nav.Link className='nav-item' href='/postTask'>
+										New Task
+									</Nav.Link>
+									<Nav.Link className='nav-item' onClick={this.logout}>
+										Logout
+									</Nav.Link>
 
-									<Navbar.Text>Signed in as: {saludo}</Navbar.Text>
+									<Navbar.Text className='nav-item-text'> {saludo}</Navbar.Text>
 								</Nav>
 							</Navbar>
 						</>

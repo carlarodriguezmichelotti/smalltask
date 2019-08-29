@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-class TasksList extends Component {
+class MyOpenTasksList extends Component {
 	constructor() {
 		super()
 		this.state = { tasks: [] } // showModal: false, showToast: false }
@@ -19,7 +19,8 @@ class TasksList extends Component {
 	updateMyList = () => {
 		this.services
 			.getMyTasks()
-			.then(response => this.setState({ tasks: response.data }))
+			.then(response => response.data.filter(task => task.status === 'OPEN'))
+			.then(response => this.setState({ tasks: response }))
 			.catch(err => console.log(err))
 	}
 
@@ -42,10 +43,6 @@ class TasksList extends Component {
 	// 		.then(response => this.setState({ tasks: response }))
 	// 		.catch(err => console.log(err))
 	// }
-	handleModalOpen = () => this.setState({ showModal: true })
-	handleModalClose = () => this.setState({ showModal: false })
-	handleToastOpen = () => this.setState({ showToast: true })
-	handleToastClose = () => this.setState({ showToast: false })
 
 	render() {
 		if (this.state.tasks.length === 0) {
@@ -55,10 +52,13 @@ class TasksList extends Component {
 						<Row>
 							<LoggedInNavBar />
 						</Row>
+
 						<Row>
 							<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
 						</Row>
-						<Link to='/postTask'>Post a task</Link>
+						<Row>
+							<Link to='/postTask'>Post a task</Link>
+						</Row>
 					</Container>
 				</>
 			)
@@ -71,9 +71,8 @@ class TasksList extends Component {
 						</Row>
 
 						<Row>
-							<h1>All tasks</h1>
+							<h1>Open tasks</h1>
 						</Row>
-
 						<Row>
 							{this.state.tasks.map(task => (
 								<MyTaskCard key={task._id} {...task} />
@@ -86,4 +85,4 @@ class TasksList extends Component {
 	}
 }
 
-export default TasksList
+export default MyOpenTasksList

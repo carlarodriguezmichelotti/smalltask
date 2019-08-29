@@ -22,6 +22,7 @@ router.post('/accept-offer', (req, res) => {
 //Tasks routes
 router.get('/tasks', (req, res) => {
 	Task.find()
+		.populate('creator')
 		.then(allTasks => res.json(allTasks))
 		.catch(err => console.log('Error', err))
 })
@@ -35,6 +36,7 @@ router.get('/task/:id', (req, res) => {
 
 router.get('/my-tasks', (req, res) => {
 	Task.find({ creator: req.user._id })
+		.populate('creator')
 		.then(allTasks => {
 			res.json(allTasks)
 		})

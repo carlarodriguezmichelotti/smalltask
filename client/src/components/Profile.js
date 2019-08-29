@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import AuthServices from '../services/auth.services'
+import LoggedInNavBar from './LoggedInNavBar'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class Profile extends Component {
 	constructor(props) {
@@ -9,16 +13,19 @@ class Profile extends Component {
 	render() {
 		return (
 			<>
-				<header className='profileHeader'>
-					<h1>HOLA VALE</h1>
-				</header>
-				<div className='col-md-3'>
-					<h3>{this.props.userInSession.data.username}</h3>
-					<h2>Member since: {this.props.userInSession.data.createdAt}</h2>
-					<article className='task-card'>
-						<hr />
-					</article>
-				</div>
+				<Container-text-center>
+					<Row>
+						<LoggedInNavBar />
+					</Row>
+					<Row-justify-content-center>
+						<h3>Username: {this.props.userInSession.data.username}</h3>
+						<h2>Member since: {this.props.userInSession.data.created_at.slice(0, 10)}</h2>
+						<img className='imgStyle' src={this.props.userInSession.data.imgUrl} />
+						<article className='task-card'>
+							<hr />
+						</article>
+					</Row-justify-content-center>
+				</Container-text-center>
 			</>
 		)
 	}

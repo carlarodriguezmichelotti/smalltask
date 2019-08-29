@@ -38,7 +38,7 @@ class TasksList extends Component {
 							{this.props.userInSession}
 
 							{this.state.tasks.map(task => (
-								<TaskCard key={task._id} {...task} />
+								<TaskCard creatorname={task.creator.username} creatorimage={task.creator.imgUrl} key={task._id} {...task} />
 							))}
 						</Col>
 

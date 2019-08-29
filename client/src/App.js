@@ -8,6 +8,8 @@ import NavBar from './components/NavBar'
 
 import TasksList from './components/TasksList'
 import MyTaskList from './components/MyTaskList'
+import MyOpenTasksList from './components/MyOpenTasksList'
+import MyAssignedTasksList from './components/MyAssignedTasksList'
 import TaskDetail from './components/TaskDetail'
 import TaskAssignedList from './components/TaskAsignedList'
 import TaskForm from './components/TaskForm'
@@ -16,6 +18,7 @@ import Home from './components/Home'
 import OffersList from './components/OffersList'
 import OfferDetails from './components/OfferDetails'
 import style from 'bootstrap/dist/css/bootstrap.css'
+import LoggedInNavBar from './components/LoggedInNavBar'
 // import MapPrueba from './components/MapPrueba'
 
 class App extends Component {
@@ -79,6 +82,8 @@ class App extends Component {
 							<Route path='/' exact component={Home} />
 							<Route path='/profile' exact render={match => <Profile {...match} userInSession={this.state.loggedInUser} />} />
 							<Route path='/my-tasks' exact component={MyTaskList} />
+							<Route path='/my-open-tasks' exact component={MyOpenTasksList} />
+							<Route path='/my-assigned-tasks' exact component={MyAssignedTasksList} />
 							<Route path='/task/:id' exact render={match => <TaskDetail {...match} userInSession={this.state.loggedInUser} />} />
 							<Route path='/how-it-works' />
 							<Route path='/tasks' exact component={TasksList} />
@@ -91,6 +96,7 @@ class App extends Component {
 							<Route path='/offer-details/:id' exact component={OfferDetails} />
 							<Route path='/accept-offer/:taskid/:bidderid' exact component={OffersList} />
 							<Route path='/assigned-tasks' exact render={match => <TaskAssignedList {...match}></TaskAssignedList>} />
+
 							{/* <Route
 								path='/postOffer/'
 								exact

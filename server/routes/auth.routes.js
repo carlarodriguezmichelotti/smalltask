@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs')
 const User = require('../models/User.model')
 
 authRoutes.post('/signup', (req, res, next) => {
-	const { username, password } = req.body
+	const { username, password, imageUrl } = req.body
 
 	if (!username || !password) {
 		res.status(400).json({ message: 'Provide username and password' })
@@ -32,10 +32,11 @@ authRoutes.post('/signup', (req, res, next) => {
 
 		const salt = bcrypt.genSaltSync(10)
 		const hashPass = bcrypt.hashSync(password, salt)
-
+		console.log(imageUrl)
 		const aNewUser = new User({
 			username: username,
-			password: hashPass
+			password: hashPass,
+			imgUrl: imageUrl
 		})
 
 		aNewUser.save(err => {
