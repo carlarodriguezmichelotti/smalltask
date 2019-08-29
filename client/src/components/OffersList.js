@@ -14,7 +14,7 @@ class OffersList extends Component {
 
 	updateList = () => {
 		this.services
-			.getOffers()
+			.getOffers(this.props.taskId)
 			.then(response => this.setState({ offers: response.data }))
 			.catch(err => console.log(err))
 	}

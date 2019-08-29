@@ -39,8 +39,7 @@ class MyTaskCard extends Component {
 						</Card.Body>
 						<Card.Footer>{this.props.status}</Card.Footer>
 					</Card>
-
-					<OffersListModal user={this.props.user} show={this.state.showModal} onHide={smClose} taskid={this.state._id} />
+					<OffersListModal user={this.props.user} show={this.state.showModal} onHide={smClose} taskid={this.props._id} />
 					<br></br>
 				</>
 			)
@@ -58,7 +57,7 @@ class MyTaskCard extends Component {
 						<Card.Footer>{this.props.status}</Card.Footer>
 					</Card>
 
-					<OffersListModal user={this.props.user} show={this.state.showModal} onHide={smClose} taskid={this.state._id} />
+					<OffersListModal taskid={this.props._id} user={this.props.user} show={this.state.showModal} onHide={smClose} />
 					<br></br>
 				</>
 			)

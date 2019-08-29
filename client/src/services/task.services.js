@@ -15,7 +15,7 @@ export default class Services {
 	getAssignedTasks = () => this.service.get('assigned-tasks')
 	postTask = theNewTask => this.service.post(`postTask`, theNewTask)
 	postOffer = theNewOffer => this.service.post(`postOffer`, theNewOffer)
-	getOffers = () => this.service.get('task-offers')
+	getOffers = taskId => this.service.get(`task-offers/${taskId}`)
 	deleteOffer = (taskId, bidderId) => this.service.post(`accept-offer`, { taskId, bidderId })
 	getOneOffer = id => this.service.get(`offer-details/${id}`)
 }
