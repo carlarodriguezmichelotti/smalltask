@@ -55,9 +55,9 @@ router.get('/assigned-tasks', (req, res) => {
 		.catch(err => console.log('Error', err))
 })
 
-router.get('/task-offers', (req, res) => {
-	// Offer.find({ $and: [{ taskid: req.body.taskId }, { bidderid: { $ne: req.body.bidderId } }] })
-	Offer.find({ taskowner: req.user.username })
+router.get('/task-offers/:taskId', (req, res) => {
+	console.log(req.params.taskId)
+	Offer.find({ $and: [{ taskowner: req.user.username }, { taskid: req.params.taskId }] })
 		.then(allOffers => {
 			res.json(allOffers)
 		})
