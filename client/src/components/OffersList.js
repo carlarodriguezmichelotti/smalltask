@@ -4,8 +4,8 @@ import Services from '../services/task.services'
 import OfferCard from './OfferCard'
 
 class OffersList extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = { offers: [] } // showModal: false, showToast: false }
 		this.services = new Services()
 	}
@@ -19,18 +19,13 @@ class OffersList extends Component {
 			.catch(err => console.log(err))
 	}
 
-	handleModalOpen = () => this.setState({ showModal: true })
-	handleModalClose = () => this.setState({ showModal: false })
-	handleToastOpen = () => this.setState({ showToast: true })
-	handleToastClose = () => this.setState({ showToast: false })
-
 	render() {
 		return (
 			<>
 				<div className='container'>
 					<h1>Listado de offers</h1>
 
-					{this.props.userInSession}
+					{this.props.userInSession.username}
 
 					<div className='row task-list'>
 						{this.state.offers.map(offer => (

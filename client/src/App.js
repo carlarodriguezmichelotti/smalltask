@@ -5,7 +5,6 @@ import AuthServices from './services/auth.services'
 import Signup from './components/auth/SignUp'
 import Login from './components/auth/Login'
 import NavBar from './components/NavBar'
-
 import TasksList from './components/TasksList'
 import MyTaskList from './components/MyTaskList'
 import MyOpenTasksList from './components/MyOpenTasksList'
@@ -77,11 +76,12 @@ class App extends Component {
 			return (
 				<>
 					<NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
+					<LoggedInNavBar />
 					<div style={{ display: 'flex', width: '100vw' }}>
 						<Switch>
 							<Route path='/' exact component={Home} />
 							<Route path='/profile' exact render={match => <Profile {...match} userInSession={this.state.loggedInUser} />} />
-							<Route path='/my-tasks' exact component={MyTaskList} />
+							<Route path='/my-tasks' exact render={() => <MyTaskList user={this.state.loggedInUser} />} />
 							<Route path='/my-open-tasks' exact component={MyOpenTasksList} />
 							<Route path='/my-assigned-tasks' exact component={MyAssignedTasksList} />
 							<Route path='/task/:id' exact render={match => <TaskDetail {...match} userInSession={this.state.loggedInUser} />} />

@@ -9,12 +9,16 @@ router.post('/accept-offer', (req, res) => {
 	// console.log(req.params.taskid, req.params.bidderid)
 	console.log(req.body)
 	Offer.deleteMany({ $and: [{ taskid: req.body.taskId }, { bidderid: { $ne: req.body.bidderId } }] })
-		.then(task => {
-			Task.findById(req.body.taskId, 'pepe')
-				.update({ status: 'ASSIGNED' })
-				.then(x => res.status(200))
+		.then(x => {
+			console.log(x, 'devuelve el delete')
+
+			User.findById(req.body.bidderId).then(user => {
+				Task.findById(req.body.taskId, 'pepe')
+					.update({ status: 'ASSIGNED', assignedto: user.username })
+					.then(x => res.status(200))
+			})
 		})
-		.catch(function(err) {
+		.catch(err => {
 			console.log('Hubo un error:', err)
 		})
 })
@@ -52,6 +56,7 @@ router.get('/assigned-tasks', (req, res) => {
 })
 
 router.get('/task-offers', (req, res) => {
+	// Offer.find({ $and: [{ taskid: req.body.taskId }, { bidderid: { $ne: req.body.bidderId } }] })
 	Offer.find({ taskowner: req.user.username })
 		.then(allOffers => {
 			res.json(allOffers)

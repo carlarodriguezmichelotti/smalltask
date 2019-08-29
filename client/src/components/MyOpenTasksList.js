@@ -45,43 +45,20 @@ class MyOpenTasksList extends Component {
 	// }
 
 	render() {
-		if (this.state.tasks.length === 0) {
-			return (
-				<>
-					<Container>
-						<Row>
+		return (
+			<>
+				<Container>
+					{/* <Row>
 							<LoggedInNavBar />
-						</Row>
+						</Row> */}
 
-						<Row>
-							<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
-						</Row>
-						<Row>
-							<Link to='/postTask'>Post a task</Link>
-						</Row>
-					</Container>
-				</>
-			)
-		} else {
-			return (
-				<>
-					<Container>
-						<Row>
-							<LoggedInNavBar />
-						</Row>
-
-						<Row>
-							<h1>Open tasks</h1>
-						</Row>
-						<Row>
-							{this.state.tasks.map(task => (
-								<MyTaskCard key={task._id} {...task} />
-							))}
-						</Row>
-					</Container>
-				</>
-			)
-		}
+					<Row>
+						<h1>Open tasks</h1>
+					</Row>
+					<Row>{this.state.tasks && this.state.tasks.map(task => <MyTaskCard key={task._id} {...task} />)}</Row>
+				</Container>
+			</>
+		)
 	}
 }
 

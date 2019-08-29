@@ -76,7 +76,7 @@ class TasksList extends Component {
 
 						<Row>
 							{this.state.tasks.map(task => (
-								<MyTaskCard key={task._id} {...task} />
+								<MyTaskCard key={task._id} {...task} user={this.props.user} />
 							))}
 						</Row>
 					</Container>

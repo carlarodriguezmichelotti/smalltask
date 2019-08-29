@@ -47,7 +47,7 @@ class TaskForm extends Component {
 
 				<hr />
 
-				<form onSubmit={this.handleFormSubmit}>
+				<form onSubmit={this.handleFormSubmit} className='taskCardStyle'>
 					<div className='form-group'>
 						<label htmlFor='input-nombre'>Title of your task</label>
 						<input name='title' type='text' className='form-control' id='input-nombre' onChange={this.handleChangeInput} />

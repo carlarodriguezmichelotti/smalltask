@@ -6,6 +6,9 @@
 	font-family: 'Work Sans';
 }
 
+.allFontFamily {
+	font-family: 'Work Sans';
+}
 .profileHeader {
 	width: 100vw;
 	background: linear-gradient(to bottom, rgba(42, 42, 108, 1), rgba(71, 60, 146, 0.73)), url('/fondo1.jpeg');
@@ -87,6 +90,7 @@ h2 {
 }
 body {
 	background-color: transparent;
+	font-family: 'Work Sans';
 }
 
 .navbarcolor {

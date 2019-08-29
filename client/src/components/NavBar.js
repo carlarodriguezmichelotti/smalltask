@@ -88,13 +88,13 @@ class NavBar extends Component {
 						</Nav> */}
 
 					<>
-						<Navbar bg='transparent'>
+						<Navbar className='navstyle' bg='transparent'>
 							<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
-							<Nav className='navbarcolor'>
+							<Nav className='justify-content-end' style={{ width: '100%' }}>
 								<Nav.Link href='/'>Inicio</Nav.Link>
+								<Nav.Link href='/tasks'>Browse tasks</Nav.Link>
 								<Nav.Link href='/signup'>Registro</Nav.Link>
 								<Nav.Link href='/login'>Inicio de sesión</Nav.Link>
-								<Nav.Link href='/tasks'>Browse tasks</Nav.Link>
 								<Nav.Link href='/how-it-works'>How it works</Nav.Link>
 								<Navbar.Text>Bienvenid@: {saludo}</Navbar.Text>
 							</Nav>

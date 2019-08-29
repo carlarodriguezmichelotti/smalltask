@@ -13,7 +13,7 @@ class Profile extends Component {
 	render() {
 		return (
 			<>
-				<Container-text-center>
+				<h3>
 					<Row>
 						<LoggedInNavBar />
 					</Row>
@@ -25,7 +25,7 @@ class Profile extends Component {
 							<hr />
 						</article>
 					</Row-justify-content-center>
-				</Container-text-center>
+				</h3>
 			</>
 		)
 	}

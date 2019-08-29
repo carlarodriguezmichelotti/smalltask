@@ -57,7 +57,7 @@ class OfferDetails extends Component {
 					Accept Offer
 				</button> */}
 
-				<button onClick={this.handleOfferClick()} offerinfo={this.state.offer}>
+				<button onClick={() => this.handleOfferClick()} offerinfo={this.state.offer}>
 					{' '}
 					Accept Offer{' '}
 				</button>
