@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Services from '../services/task.services'
 import MyTaskCard from './MyTaskCard'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+
 import LoggedInNavBar from './LoggedInNavBar'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -23,42 +25,24 @@ class TasksList extends Component {
 			.catch(err => console.log(err))
 	}
 
-	// showPostedTasks = () => {
-	// 	this.services
-	// 		.getMyTasks()
-	// 		.then(response => response.data.filter(task => task.status === 'OPEN'))
-	// 		.then(response => this.setState({ tasks: response }))
-	// 		.catch(err => console.log(err))
-	// }
-
-	// showMyTasks = () => {
-	// 	this.updateMyList()
-	// }
-
-	// showAssignedTasks = () => {
-	// 	this.services
-	// 		.getMyTasks()
-	// 		.then(response => response.data.filter(task => task.status === 'ASSIGNED'))
-	// 		.then(response => this.setState({ tasks: response }))
-	// 		.catch(err => console.log(err))
-	// }
-	handleModalOpen = () => this.setState({ showModal: true })
-	handleModalClose = () => this.setState({ showModal: false })
-	handleToastOpen = () => this.setState({ showToast: true })
-	handleToastClose = () => this.setState({ showToast: false })
-
 	render() {
 		if (this.state.tasks.length === 0) {
 			return (
 				<>
 					<Container>
-						<Row>
+						{/* <Row>
 							<LoggedInNavBar />
-						</Row>
-						<Row>
-							<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
-						</Row>
-						<Link to='/postTask'>Post a task</Link>
+						</Row> */}
+						<Row-text-center>
+							<h4 className='allFontFamily centeralign'>
+								Looks like you haven’t posted a task.<br></br> How about posting one now?
+							</h4>
+						</Row-text-center>
+						<Button btn btn-dark id='botones' className='centerthebutton'>
+							<Link id='linkss' to='/postTask'>
+								Post a task
+							</Link>
+						</Button>
 					</Container>
 				</>
 			)
@@ -66,19 +50,22 @@ class TasksList extends Component {
 			return (
 				<>
 					<Container>
-						<Row>
+						{/* <Row>
 							<LoggedInNavBar />
+						</Row> */}
+
+						<Row>
+							<h2>All tasks posted by you</h2>
 						</Row>
 
 						<Row>
-							<h1>All tasks</h1>
+							<Col sm={4}>
+								{this.state.tasks.map(task => (
+									<MyTaskCard key={task._id} {...task} user={this.props.user} />
+								))}
+							</Col>
 						</Row>
-
-						<Row>
-							{this.state.tasks.map(task => (
-								<MyTaskCard key={task._id} {...task} user={this.props.user} />
-							))}
-						</Row>
+						<br></br>
 					</Container>
 				</>
 			)

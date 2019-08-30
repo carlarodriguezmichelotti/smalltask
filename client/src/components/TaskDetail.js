@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Services from '../services/task.services'
 import OfferFormModal from './OfferFormModal'
@@ -31,35 +32,28 @@ class TaskDetail extends Component {
 
 		return (
 			<div className='container'>
-				<article className='coaster-detail'>
+				<article>
 					<div className='row justify-content-center'>
 						<div className='col-md-6'>
-							<h1>{this.state.task.title}</h1>
-							<p>
-								<strong>Details:</strong> {this.state.task.description}
-							</p>
-							<hr />
-							<p>
-								<small>Task budget:</small> {this.state.task.budget} | Due date: {this.state.task.date}
-							</p>
-							<p>Posted by: {this.state.task.creator && this.state.task.creator.username}</p>
-							<small>Status: {this.state.task.status}</small>
-							<Link className='btn btn-big btn-dark' to='/tasks'>
-								Back
+							<Link to='/tasks'>
+								<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrow'></Image>
 							</Link>
-							<Button onClick={() => this.setState({ smShow: true })} variant='dark' size='sm' block>
+							<h3 className='allFontFamily'>{this.state.task.title}</h3>
+							<p className='allFontFamily'>DETAILS:{this.state.task.description}</p>
+							<hr />
+							<p className='allFontFamily'>Posted by: {this.state.task.creator && this.state.task.creator.username}</p>
+							<p className='allFontFamily'>Location:{this.state.task.place && this.state.task.place.address}</p>
+							<p className='allFontFamily'>
+								<small>Task budget:</small> {this.state.task.budget} | Due date:{' '}
+								{this.state.task.date && this.state.task.date.slice(0, 10)}
+							</p>
+							<small className='allFontFamily'>Status: {this.state.task.status}</small>
+
+							<Button onClick={() => this.setState({ smShow: true })} id='makeanofferbutton' size='sm' block>
 								Make an offer
 							</Button>
-
 							{console.log(this.props.userInSession)}
 							{this.state.task.creator && (
-								// <OfferForm
-
-								// 	userInSession={this.props.userInSession}
-								// 	taskowner={this.state.task.creator.username}
-								// 	taskid={this.state.task._id}
-								// />
-
 								<OfferFormModal
 									show={this.state.smShow}
 									onHide={smClose}

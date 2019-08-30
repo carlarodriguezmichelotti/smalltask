@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 import Autocomplete from 'react-google-autocomplete'
 import Services from '../services/task.services'
+import Image from 'react-bootstrap/Image'
+import { Link } from 'react-router-dom'
 
 class TaskForm extends Component {
 	constructor(props) {
@@ -45,37 +47,43 @@ class TaskForm extends Component {
 			<>
 				<h4>What do you need done?</h4>
 
-				<hr />
-
-				<form onSubmit={this.handleFormSubmit} className='taskCardStyle'>
+				<hr style={{ width: '100%' }} />
+				<Link to='/my-tasks'>
+					<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrow'></Image>
+				</Link>
+				<form onSubmit={this.handleFormSubmit} id='newTaskForm' className='taskCardStyle loginForm'>
 					<div className='form-group'>
 						<label htmlFor='input-nombre'>Title of your task</label>
-						<input name='title' type='text' className='form-control' id='input-nombre' onChange={this.handleChangeInput} />
+						<br />
+						<input name='title' type='text' className='newTaskInputs' id='input-nombre' onChange={this.handleChangeInput} />
 					</div>
 					<div className='form-group'>
 						<label htmlFor='input-description'>Details</label>
+						<br />
 						<input
 							name='description'
 							type='text'
-							className='form-control'
+							className='newTaskInputs'
 							id='input-descripcion'
 							onChange={this.handleChangeInput}
 						/>
 					</div>
 					<div className='form-group'>
 						<label htmlFor='input-budget'>What is your budget?</label>
-						<input name='budget' type='number' className='form-control' id='input-budget' onChange={this.handleChangeInput} />
+						<br />
+						<input name='budget' type='number' className='newTaskInputs' id='input-budget' onChange={this.handleChangeInput} />
 					</div>
 					<div className='form-group'>
 						<label htmlFor='input-inv'>When do you need it done?</label>
-						<input name='date' type='date' className='form-control' id='input-date' onChange={this.handleChangeInput} />
+						<br />
+						<input name='date' type='date' className='newTaskInputs' id='input-date' onChange={this.handleChangeInput} />
 					</div>
 
 					<div className='form-group'>
 						<label htmlFor='input-img'>Where do you need it done?</label>
-
+						<br></br>
 						<Autocomplete
-							style={{ width: '90%' }}
+							style={{ width: '350px', border: 0, borderbottom: 'solid' }}
 							onPlaceSelected={place => {
 								this.setState({
 									place: {
@@ -89,14 +97,15 @@ class TaskForm extends Component {
 							componentRestrictions={{ country: 'es' }}
 						/>
 					</div>
-
-					<button type='submit' className='btn btn-dark btn-sm'>
-						Crear
+					<br></br>
+					{/* btn btn-dark btn-sm */}
+					<button type='submit' id='botonTaskForm' className='btn'>
+						Post a task
 					</button>
 
-					<button className='btn btn-dark btn-sm' onClick={this.redirectToMyTasks}>
+					{/* <button className='btn btn-dark btn-sm' onClick={this.redirectToMyTasks}>
 						Cerrar
-					</button>
+					</button> */}
 				</form>
 			</>
 		)

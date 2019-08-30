@@ -14,13 +14,11 @@ class Profile extends Component {
 		return (
 			<>
 				<h3>
-					<Row>
-						<LoggedInNavBar />
-					</Row>
 					<Row-justify-content-center>
-						<h3>Username: {this.props.userInSession.data.username}</h3>
-						<h2>Member since: {this.props.userInSession.data.created_at.slice(0, 10)}</h2>
 						<img className='imgStyle' src={this.props.userInSession.data.imgUrl} />
+						<p className='profileData'>Username: {this.props.userInSession.data.username}</p>
+						<p className='profileData'>Member since: {this.props.userInSession.data.created_at.slice(0, 10)}</p>
+
 						<article className='task-card'>
 							<hr />
 						</article>

@@ -43,22 +43,32 @@ class OfferForm extends Component {
 
 				<form onSubmit={this.handleFormSubmit}>
 					<div className='form-group'>
-						<label htmlFor='input-nombre'>Your offer:</label>
-						<input name='budget' type='number' className='form-control' id='input-budget' onChange={this.handleChangeInput} />
+						<label htmlFor='input-nombre' className='allFontFamily'>
+							Your offer:
+						</label>
+						<input
+							name='budget'
+							type='number'
+							className='form-control allFontFamily'
+							id='input-budget'
+							onChange={this.handleChangeInput}
+						/>
 					</div>
 					<div className='form-group'>
-						<label htmlFor='input-description'>Your message:</label>
+						<label htmlFor='input-description' className='allFontFamily'>
+							Your message:
+						</label>
 						<input
 							name='description'
 							type='text'
-							className='form-control'
+							className='form-control allFontFamily'
 							id='input-descripcion'
 							onChange={this.handleChangeInput}
 						/>
 					</div>
 
-					<button type='submit' className='btn btn-dark btn-sm' onClick={() => this.redirectToTarget()}>
-						Crear
+					<button type='submit' className='btn btn-dark btn-sm allFontFamily' onClick={() => this.redirectToTarget()}>
+						Make your offer
 					</button>
 				</form>
 			</>

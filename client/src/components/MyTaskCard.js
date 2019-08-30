@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Services from '../services/task.services'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import Image from 'react-bootstrap/Image'
 import OffersListModal from './OffersListModal'
 
 class MyTaskCard extends Component {
@@ -27,12 +28,12 @@ class MyTaskCard extends Component {
 		if (this.props.status === 'OPEN') {
 			return (
 				<>
-					<Card border='success' style={{ width: '21rem', borderRadius: 3 }} className='taskCardStyle'>
-						<Card.Body>
+					<Card id='mycardstyle' className='taskCardInfo' border='success' style={{ width: '23rem', borderRadius: 3 }}>
+						<Card.Body className='taskCardInfo'>
 							<Card.Title>{this.props.title}</Card.Title>
-							<Card.Text className='taskCardInfo'>{this.props.description}</Card.Text>
+							<Card.Text className='taskCardInfo'>Details: {this.props.description}</Card.Text>
 							<Card.Text className='taskCardInfo'>{this.props.date.slice(0, 10)}</Card.Text>
-							<Card.Text className='taskCardInfo'>{this.props.budget}</Card.Text>
+							<Card.Text className='taskCardInfo'>Budget:{this.props.budget}€</Card.Text>
 							<Button onClick={() => this.setState({ showModal: true })} variant='dark' size='sm' block>
 								See Offers
 							</Button>
@@ -46,15 +47,27 @@ class MyTaskCard extends Component {
 		} else {
 			return (
 				<>
-					<Card border='dark' style={{ width: '21rem' }}>
-						<Card.Body>
-							<Card.Title>{this.props.title}</Card.Title>
-
-							{/* <Button onClick={() => this.setState({ showModal: true })} variant='dark' size='sm' block>
-								See Offers
-							</Button> */}
+					<Card id='mycardstyle' className='taskCardInfo' border='dark' style={{ width: '23rem', borderRadius: 3 }}>
+						<Card.Header className='taskCardInfo'>
+							{' '}
+							<b>{this.props.status}</b>
+						</Card.Header>
+						<Card.Body className='taskCardInfo'>
+							<Image src={require('../euros.svg')} style={{ width: '50px', height: '50px' }} className='cardImage' />
+							<Card.Text className='text-center taskCardInfo'>
+								{' '}
+								<b>{this.props.budget}€</b>
+							</Card.Text>
+							<Card.Text className='text-center taskCardInfo'>
+								<b>Details:</b> {this.props.title}
+							</Card.Text>
+							<Card.Text className='text-center taskCardInfo'>
+								<b>Task assigned to:</b> {this.props.assignedto}
+							</Card.Text>
+							<Button variant='dark' size='sm' block>
+								{this.props.status}
+							</Button>
 						</Card.Body>
-						<Card.Footer>{this.props.status}</Card.Footer>
 					</Card>
 
 					<OffersListModal taskid={this.props._id} user={this.props.user} show={this.state.showModal} onHide={smClose} />

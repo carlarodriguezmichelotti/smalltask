@@ -20,14 +20,12 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 									<Col sm={9}>
 										<Card.Title className='taskCardInfo'>{title}</Card.Title>
 									</Col>
-
 									<Col sm={3}>
 										<Card.Text className='taskCardInfo' style={{ fontSize: '25px' }}>
 											<b>{budget}€</b>
 										</Card.Text>
 									</Col>
 								</Row>
-
 								<Row>
 									<Col sm={2}>
 										<Image className='cardImage' src={require('../location-pin.svg')}></Image>
@@ -36,7 +34,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
 									</Col>
 								</Row>
-								<br></br>
+
 								<Row>
 									<Col sm={2}>
 										<Image className='cardImage' src={require('../calendar.svg')}></Image>
@@ -45,7 +43,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>
 									</Col>
 								</Row>
-								<br></br>
+
 								<Row>
 									<Col sm={8}>
 										<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
@@ -54,12 +52,6 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Image src={creatorimage} style={{ width: '50px', height: '50px' }} className='imgCard' />
 									</Col>
 								</Row>
-
-								{/* <Link to={`/task/${_id}`} className='detailsButton'>
-									<Button className='detailsButton' size='sm' block>
-										Details
-									</Button>
-								</Link> */}
 							</Card.Body>
 							<Card.Footer className='taskCardInfo'>{status}</Card.Footer>
 						</Card>
@@ -67,15 +59,6 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 					<br></br>
 				</Link>
 			</>
-
-			// 		<Row>
-			// 			<Link to={`/task/${_id}`}>
-			// 				<Button variant='dark' size='sm' block>
-			// 					Details
-			// 				</Button>
-			// 			</Link>
-			// 		</Row>
-			// 	</Container>
 		)
 	} else {
 		return (
@@ -88,12 +71,10 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 									<Col sm={10}>
 										<Card.Title className='taskCardInfo'>{title}</Card.Title>
 									</Col>
-
 									<Col sm={2}>
 										<Card.Text className='taskCardInfo'>{budget}€</Card.Text>
 									</Col>
 								</Row>
-
 								<Row>
 									<Col sm={2}>
 										<Image className='cardImage' src={require('../location-pin.svg')}></Image>
@@ -102,13 +83,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
 									</Col>
 								</Row>
-
 								<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
-								{/* <Link to={`/task/${_id}`}>
-									<Button className='taskCardInfo' size='sm' block>
-										Details
-									</Button>
-								</Link> */}
 							</Card.Body>
 							<Card.Footer className='taskCardInfo'>{status}</Card.Footer>
 						</Card>

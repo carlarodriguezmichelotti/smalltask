@@ -34,13 +34,15 @@ class TasksList extends Component {
 					<Row>
 						<br />
 						<br />
-						<Col sm={5}>
-							{this.props.userInSession}
+						<div data-spy='scroll'>
+							<Col sm={5}>
+								{this.props.userInSession}
 
-							{this.state.tasks.map(task => (
-								<TaskCard creatorname={task.creator.username} creatorimage={task.creator.imgUrl} key={task._id} {...task} />
-							))}
-						</Col>
+								{this.state.tasks.map(task => (
+									<TaskCard creatorname={task.creator.username} creatorimage={task.creator.imgUrl} key={task._id} {...task} />
+								))}
+							</Col>
+						</div>
 
 						{/* <div className='row task-list'>
 						{this.state.tasks.map(task => (

@@ -9,6 +9,7 @@ import TasksList from './components/TasksList'
 import MyTaskList from './components/MyTaskList'
 import MyOpenTasksList from './components/MyOpenTasksList'
 import MyAssignedTasksList from './components/MyAssignedTasksList'
+import AssignedTaskerList from './components/AssignedTaskerList'
 import TaskDetail from './components/TaskDetail'
 import TaskAssignedList from './components/TaskAsignedList'
 import TaskForm from './components/TaskForm'
@@ -67,6 +68,8 @@ class App extends Component {
 
 					<Switch>
 						<Route path='/' exact component={Home} />
+						<Route pant='/profile' exact component={Home} />
+						<Route path='/my-tasks' exact component={Home} />
 						<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
 						<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
 					</Switch>
@@ -84,6 +87,11 @@ class App extends Component {
 							<Route path='/my-tasks' exact render={() => <MyTaskList user={this.state.loggedInUser} />} />
 							<Route path='/my-open-tasks' exact component={MyOpenTasksList} />
 							<Route path='/my-assigned-tasks' exact component={MyAssignedTasksList} />
+							<Route
+								path='/assigned-tasker'
+								exact
+								render={match => <AssignedTaskerList {...match} userInSession={this.state.loggedInUser} />}
+							/>
 							<Route path='/task/:id' exact render={match => <TaskDetail {...match} userInSession={this.state.loggedInUser} />} />
 							<Route path='/how-it-works' />
 							<Route path='/tasks' exact component={TasksList} />

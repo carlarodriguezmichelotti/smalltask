@@ -28,7 +28,7 @@ class MyAssignedTasksList extends Component {
 		if (this.state.tasks.length === 0) {
 			return (
 				<>
-					<LoggedInNavBar />
+					{/* <LoggedInNavBar /> */}
 					<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
 					<Link to='/postTask'>Post a task</Link>
 				</>
@@ -38,9 +38,7 @@ class MyAssignedTasksList extends Component {
 				<>
 					<Container>
 						<Row>
-							<Col>
-								<LoggedInNavBar />
-							</Col>
+							<Col>{/* <LoggedInNavBar /> */}</Col>
 						</Row>
 						<Row>
 							<h1>Assigned tasks</h1>

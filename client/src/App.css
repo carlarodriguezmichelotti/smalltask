@@ -1,6 +1,127 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
 
+/*General*/
+
+#botones {
+	background-color: transparent;
+	border-radius: 28px;
+	border-color: #625392;
+	color: #625392;
+}
+
+#linkss {
+	text-decoration: none;
+	color: #625392;
+	font-size: 15px;
+}
+/*Login*/
+
+.loginTitle {
+	text-align: center;
+	margin-left: 70px;
+	margin-top: 120px;
+}
+.loginButton {
+	width: 285px;
+	border-radius: 28px;
+	border-color: gray;
+	border-width: 0.5px;
+	background-color: transparent;
+}
+.loginButton:hover {
+	width: 285px;
+	border-radius: 28px;
+	border-color: #625392;
+	border-width: 0.5px;
+	background-color: transparent;
+}
+
+.loginForm {
+	margin-left: 450px;
+	margin-top: 10px;
+}
+
+#loginInputs {
+	width: 200px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid gray;
+	border-radius: 0;
+}
+
+/*Profile*/
+.profileData {
+	font-size: 15px;
+	font-family: 'Work Sans';
+}
+/*Card Class*/
+
+.cardClass {
+	width: 100px;
+	height: 70px;
+}
+/*New task form*/
+
+.newTaskInput {
+	width: 90%;
+}
+
+#botonTaskForm {
+	background-color: transparent;
+	border-radius: 28px;
+	border-color: #625392;
+	color: #625392;
+	width: 60%;
+	margin-left: 80px;
+}
+
+#newTaskForm {
+	border-color: #625392;
+}
+button .taskFormButton {
+	padding: 500px;
+}
+
+.newTaskInputs {
+	width: 350px;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid gray;
+	border-radius: 0;
+}
+
+.backArrow {
+	margin-left: 350px;
+}
+
+/*MyTasks*/
+
+.centerthebutton {
+	margin-top: 20px;
+	margin-left: 500px;
+}
+
+.centeralign {
+	margin-top: 90px;
+	text-align: center;
+}
+
+/*MyTaskCard*/
+
+#mycardstyle {
+	padding: 0px;
+	width: 350px;
+	height: 270px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+}
+#mycardstyle:hover {
+	transform: scale(1.02);
+}
+
 /*Home*/
 .navstyle {
 	font-family: 'Work Sans';
@@ -11,7 +132,8 @@
 }
 .profileHeader {
 	width: 100vw;
-	background: linear-gradient(to bottom, rgba(42, 42, 108, 1), rgba(71, 60, 146, 0.73)), url('/fondo1.jpeg');
+	background: linear-gradient(to bottom, rgba(42, 42, 108, 1), rgba(71, 60, 146, 0.73)),
+		url('/fondo1.jpeg') no-repeat fixed center;
 	/* background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url('/fondo1.jpeg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -34,11 +156,25 @@
 .homeMainButton {
 	font-family: 'Work Sans';
 	font-size: 15px;
-	background-color: transparent;
+	background-color: none;
 	border-color: rgba(255, 255, 255, 0.6);
 	color: rgba(255, 255, 255, 0.6);
 	border-radius: 20;
 	margin-left: 580px;
+	text-decoration: none;
+}
+
+.homeMainLink {
+	font-family: 'Work Sans';
+	font-size: 15px;
+	background-color: none;
+	color: white;
+	border-radius: 20;
+	text-decoration: none;
+}
+.homeMainLink:hover {
+	text-decoration: none;
+	color: white;
 }
 
 /*Task Card*/
@@ -50,6 +186,7 @@
 .taskCardInfo {
 	font-size: 12px;
 	color: grey;
+	font-family: 'Work Sans';
 }
 .cardImage {
 	width: 25px;
@@ -130,3 +267,33 @@ body {
 	margin: 15px;
 	font-weight: 600;
 }
+
+#makeanofferbutton {
+	background-color: transparent;
+	border-radius: 28px;
+	margin-left: 100px;
+	color: gray;
+	border-width: 0.5px;
+	width: 200px;
+}
+
+#makeanofferbutton:hover {
+	color: black;
+}
+
+/*NavBar Offline*/
+.navbaroffline {
+	background-image: linear-gradient(to bottom, rgba(42, 42, 108, 1), rgba(71, 60, 146, 0.73)), url('/fondo1.jpeg');
+	/* linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)), 
+  url('https://images.unsplash.com/photo-1473923377535-0002805f57e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d239ac0e409e18cf74ace503c491714f&auto=format&fit=crop&w=1469&q=80'); */
+	background-attachment: fixed;
+	background-position: auto, center top;
+}
+
+.bgimg {
+	height: 600px;
+	background-image: url('/fondo1.jpeg');
+	background-attachment: fixed;
+	background-position: center top;
+}
+/*Prueba botón*/

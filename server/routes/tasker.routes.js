@@ -49,6 +49,7 @@ router.get('/my-tasks', (req, res) => {
 
 router.get('/assigned-tasks', (req, res) => {
 	Task.find({ status: 'ASSIGNED' })
+		.populate('creator')
 		.then(allTasks => {
 			res.json(allTasks)
 		})

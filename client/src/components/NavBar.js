@@ -27,81 +27,41 @@ class NavBar extends Component {
 		if (this.props.userInSession) {
 			return (
 				<>
-					{/* <div className='toggle-menu' onClick={this.toggleMenu}>
-						&equiv;{' '}
-					</div> */}
-					{/* <header className='menu'> */}
-					{
-						<>
-							<Navbar className='navstyle' bg='transparent'>
-								<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
-								<Nav className='justify-content-end' style={{ width: '100%' }}>
-									<Nav.Link className='nav-item' href='/profile'>
-										Profile
-									</Nav.Link>
-									<Nav.Link className='nav-item' href='/tasks'>
-										Browse tasks
-									</Nav.Link>
-									<Nav.Link className='nav-item' href='/my-tasks'>
-										My tasks
-									</Nav.Link>
-									<Nav.Link className='nav-item' href='/postTask'>
-										New Task
-									</Nav.Link>
-									<Nav.Link className='nav-item' onClick={this.logout}>
-										Logout
-									</Nav.Link>
+					<Navbar className='navstyle' bg='transparent'>
+						<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
+						<Nav className='justify-content-end' style={{ width: '100%' }}>
+							<Nav.Link className='nav-item' href='/profile'>
+								Profile
+							</Nav.Link>
+							<Nav.Link className='nav-item' href='/tasks'>
+								Browse tasks
+							</Nav.Link>
+							<Nav.Link className='nav-item' href='/my-tasks'>
+								My tasks
+							</Nav.Link>
+							<Nav.Link className='nav-item' href='/postTask'>
+								New Task
+							</Nav.Link>
+							<Nav.Link className='nav-item' onClick={this.logout}>
+								Logout
+							</Nav.Link>
 
-									<Navbar.Text className='nav-item-text'> {saludo}</Navbar.Text>
-								</Nav>
-							</Navbar>
-						</>
-					}
-
-					{/* </header> */}
+							<Navbar.Text className='nav-item-text'> {saludo}</Navbar.Text>
+						</Nav>
+					</Navbar>
 				</>
 			)
 		} else {
 			return (
 				<>
-					{/* <div className='toggle-menu' onClick={this.toggleMenu}>
-						&equiv;{' '}
-					</div> */}
-					{/* <header className='menu'> */}
-					{/* <Nav>
-							<Nav.Item>
-								<Nav.Link href='/'>Inicio</Nav.Link>
-							</Nav.Item>
-							<Nav.Item>
-								<Nav.Link href='/signup'>Registro</Nav.Link>
-							</Nav.Item>
-							<Nav.Item>
-								<Nav.Link href='/login'>Inicio de sesión</Nav.Link>
-							</Nav.Item>
-							<Nav.Item>
-								<Nav.Link href='/tasks'>Browse tasks</Nav.Link>
-							</Nav.Item>
-							<Nav.Item>
-								<Nav.Link href='/how-it-works'>How it works</Nav.Link>
-							</Nav.Item>
-							<Nav.Item>Bienvenid@, {saludo}</Nav.Item>
-						</Nav> */}
-
-					<>
-						<Navbar className='navstyle' bg='transparent'>
-							<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
-							<Nav className='justify-content-end' style={{ width: '100%' }}>
-								<Nav.Link href='/'>Inicio</Nav.Link>
-								<Nav.Link href='/tasks'>Browse tasks</Nav.Link>
-								<Nav.Link href='/signup'>Registro</Nav.Link>
-								<Nav.Link href='/login'>Inicio de sesión</Nav.Link>
-								<Nav.Link href='/how-it-works'>How it works</Nav.Link>
-								<Navbar.Text>Bienvenid@: {saludo}</Navbar.Text>
-							</Nav>
-						</Navbar>
-					</>
-					<h1>SmallTask App</h1>
-					{/* </header> */}
+					<Navbar className='navstyle' bg='transparent'>
+						<Navbar.Brand href='/'>SmallTask</Navbar.Brand>
+						<Nav className='justify-content-end' style={{ width: '100%' }}>
+							<Nav.Link href='/signup'>Sign Up</Nav.Link>
+							<Nav.Link href='/login'>Login</Nav.Link>
+							{/* <Navbar.Text>Bienvenid@: {saludo}</Navbar.Text> */}
+						</Nav>
+					</Navbar>
 				</>
 			)
 		}

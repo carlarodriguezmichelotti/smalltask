@@ -7,7 +7,9 @@ class OfferFormModal extends Component {
 		return (
 			<Modal {...this.props} size='small' aria-labelledby='example-modal-sizes-title-sm'>
 				<Modal.Header closeButton>
-					<Modal.Title id='example-modal-sizes-title-sm'>Make an offer</Modal.Title>
+					<Modal.Title id='example-modal-sizes-title-sm' className='allFontFamily'>
+						Make an offer
+					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<OfferForm
