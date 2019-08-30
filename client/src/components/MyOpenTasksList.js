@@ -53,9 +53,13 @@ class MyOpenTasksList extends Component {
 						</Row> */}
 
 					<Row>
-						<h1>Open tasks</h1>
+						<h4>Open tasks</h4>
 					</Row>
-					<Row>{this.state.tasks && this.state.tasks.map(task => <MyTaskCard key={task._id} {...task} />)}</Row>
+					<Row>
+						<Col md={{ span: 6, offset: 3 }}>
+							{this.state.tasks && this.state.tasks.map(task => <MyTaskCard key={task._id} {...task} />)}
+						</Col>
+					</Row>
 				</Container>
 			</>
 		)

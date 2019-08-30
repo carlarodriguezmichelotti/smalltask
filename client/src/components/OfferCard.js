@@ -5,13 +5,15 @@ import Button from 'react-bootstrap/Button'
 const OfferCard = ({ bidderusername, description, budget, _id }) => {
 	console.log(_id)
 	return (
-		<div className='col-md-3'>
+		<div className='col-md-10'>
 			<article className='task-card'>
-				<p>Posted by: {bidderusername}</p>
-				<p>{description}</p>
-				<p>{budget}</p>
+				<p className='allFontFamily'>Posted by: {bidderusername}</p>
+				<p className='allFontFamily'>Details: {description}</p>
+				<p className='allFontFamily'>Offer: {budget}</p>
 
-				<Link to={`/offer-details/${_id}`}>See offer</Link>
+				<Link className='linklinkStyle' to={`/offer-details/${_id}`}>
+					See offer
+				</Link>
 
 				<hr />
 			</article>

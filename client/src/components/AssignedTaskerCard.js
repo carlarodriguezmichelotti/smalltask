@@ -17,20 +17,32 @@ const AssignedTaskerCard = ({ budget, title, creator }) => {
 					<Card.Body>
 						<Card.Title>{title}</Card.Title>
 						<Row>
-							<Col>
-								<Image src={require('../safe.svg')} style={{ width: '25px', height: '25px' }} />
-							</Col>
-							<Col>
-								<Card.Text className='taskCardInfo'>Funds Secured</Card.Text>
-							</Col>
-							<Col>
-								<Card.Text className=' text-center taskCardInfo'>{budget}</Card.Text>
+							<Col sm={{ span: 2, offset: 4 }}>
+								<Image className='imagecandado' src={require('../safe.svg')} style={{ width: '20px', height: '20px' }} />
 							</Col>
 						</Row>
 						<Row>
-							<Card.Text>Posted by: {creator.username}</Card.Text>
-							<Image src={creator.imgUrl} className='imgCard' style={{ width: '60px', height: '60px' }}></Image>
+							<Col>
+								<Card.Text className='taskCardInfo fuentecandado'>Funds Secured</Card.Text>
+							</Col>
 						</Row>
+						<Row>
+							<Col>
+								<Card.Text className=' fuentefondos text-center taskCardInfo'>{budget}€</Card.Text>
+							</Col>
+						</Row>
+						<Row>
+							<Col sm={10}>
+								<Card.Text className='postedByCompleted'>Posted by: {creator.username}</Card.Text>
+							</Col>
+							<Col sm={2}>
+								<Image src={creator.imgUrl} className='imgCard' style={{ width: '25px', height: '25px' }}></Image>
+							</Col>
+						</Row>
+						<br></br>
+						<Button variant='dark' size='sm' block>
+							Send a message to task poster
+						</Button>
 					</Card.Body>
 					{/* <Card.Footer>{this.props.status}</Card.Footer> */}
 				</Card>

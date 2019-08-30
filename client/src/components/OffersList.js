@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Services from '../services/task.services'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
 
 import OfferCard from './OfferCard'
 
@@ -15,24 +19,26 @@ class OffersList extends Component {
 	updateList = () => {
 		this.services
 			.getOffers(this.props.taskId)
-			.then(response => this.setState({ offers: response.data }))
+			.then(response => {
+				this.setState({ offers: response.data })
+			})
 			.catch(err => console.log(err))
 	}
 
 	render() {
 		return (
 			<>
-				<div className='container'>
-					<h1>Listado de offers</h1>
+				<Container>
+					<Row>
+						<div className='row task-list'>
+							{this.state.offers.map(offer => (
+								<OfferCard key={offer._id} {...offer} />
+							))}
+						</div>
+					</Row>
 
-					{this.props.userInSession.username}
-
-					<div className='row task-list'>
-						{this.state.offers.map(offer => (
-							<OfferCard key={offer._id} {...offer} />
-						))}
-					</div>
-				</div>
+					{/* {this.props.userInSession.username} */}
+				</Container>
 			</>
 		)
 	}

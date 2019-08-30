@@ -13,17 +13,23 @@ class Profile extends Component {
 	render() {
 		return (
 			<>
-				<h3>
-					<Row-justify-content-center>
-						<img className='imgStyle' src={this.props.userInSession.data.imgUrl} />
-						<p className='profileData'>Username: {this.props.userInSession.data.username}</p>
-						<p className='profileData'>Member since: {this.props.userInSession.data.created_at.slice(0, 10)}</p>
-
+				<Container>
+					<Row>
+						<img className='imgStyle profilePicStyle' src={this.props.userInSession.data.imgUrl} />
+					</Row>
+					<br></br>
+					<Row>
+						<p className='profileData profileDataStyle'>Username: {this.props.userInSession.data.username}</p>
+					</Row>
+					<Row>
+						<p className='profileData profileDataStyle'>Member since: {this.props.userInSession.data.created_at.slice(0, 10)}</p>
+					</Row>
+					<Row>
 						<article className='task-card'>
 							<hr />
 						</article>
-					</Row-justify-content-center>
-				</h3>
+					</Row>
+				</Container>
 			</>
 		)
 	}

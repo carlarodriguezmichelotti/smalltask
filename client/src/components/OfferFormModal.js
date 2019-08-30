@@ -2,6 +2,18 @@ import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import OfferForm from './OfferForm'
+
+// handleFormSubmit = e => {
+// 	e.preventDefault()
+// 	this.service
+// 		.postCoaster(this.state)
+// 		.then(x => {
+// 			this.props.closeModal()
+// 			this.props.updateCoasterList()
+// 		})
+// 		.catch(err => console.log('error', err))
+// }
+
 class OfferFormModal extends Component {
 	render() {
 		return (

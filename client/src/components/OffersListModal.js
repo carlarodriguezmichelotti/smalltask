@@ -10,7 +10,10 @@ class OffersListModal extends Component {
 		return (
 			<Modal {...this.props} size='small' aria-labelledby='example-modal-sizes-title-sm'>
 				<Modal.Header closeButton>
-					<Modal.Title id='example-modal-sizes-title-sm'>Offers for this task</Modal.Title>
+					<Modal.Title className='allFontFamily' id='example-modal-sizes-title-sm'>
+						Taskers offers
+					</Modal.Title>
+					:￼
 				</Modal.Header>
 				<Modal.Body>
 					<OffersList userInSession={this.props.user} taskId={this.props.taskid} />

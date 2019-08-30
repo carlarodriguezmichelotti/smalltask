@@ -65,11 +65,8 @@ class App extends Component {
 			return (
 				<>
 					<NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
-
 					<Switch>
 						<Route path='/' exact component={Home} />
-						<Route pant='/profile' exact component={Home} />
-						<Route path='/my-tasks' exact component={Home} />
 						<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
 						<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
 					</Switch>

@@ -28,12 +28,17 @@ class MyTaskCard extends Component {
 		if (this.props.status === 'OPEN') {
 			return (
 				<>
-					<Card id='mycardstyle' className='taskCardInfo' border='success' style={{ width: '23rem', borderRadius: 3 }}>
+					<Card
+						id='mycardstyle'
+						className='taskCardInfo'
+						border='success'
+						style={{ width: '23rem', height: '19rem', borderRadius: 3 }}
+					>
 						<Card.Body className='taskCardInfo'>
 							<Card.Title>{this.props.title}</Card.Title>
 							<Card.Text className='taskCardInfo'>Details: {this.props.description}</Card.Text>
-							<Card.Text className='taskCardInfo'>{this.props.date.slice(0, 10)}</Card.Text>
-							<Card.Text className='taskCardInfo'>Budget:{this.props.budget}€</Card.Text>
+							<Card.Text className='taskCardInfo'>Date: {this.props.date.slice(0, 10)}</Card.Text>
+							<Card.Text className='taskCardInfo'>Budget: {this.props.budget}€</Card.Text>
 							<Button onClick={() => this.setState({ showModal: true })} variant='dark' size='sm' block>
 								See Offers
 							</Button>
@@ -53,10 +58,10 @@ class MyTaskCard extends Component {
 							<b>{this.props.status}</b>
 						</Card.Header>
 						<Card.Body className='taskCardInfo'>
-							<Image src={require('../euros.svg')} style={{ width: '50px', height: '50px' }} className='cardImage' />
-							<Card.Text className='text-center taskCardInfo'>
+							<Card.Text className='assignedBudget text-center taskCardInfo'>
 								{' '}
-								<b>{this.props.budget}€</b>
+								<b>{this.props.budget}</b>{' '}
+								<Image src={require('../euros.svg')} style={{ width: '30px', height: '30px' }} className='cardImage' />
 							</Card.Text>
 							<Card.Text className='text-center taskCardInfo'>
 								<b>Details:</b> {this.props.title}
@@ -65,7 +70,7 @@ class MyTaskCard extends Component {
 								<b>Task assigned to:</b> {this.props.assignedto}
 							</Card.Text>
 							<Button variant='dark' size='sm' block>
-								{this.props.status}
+								Send a message to tasker
 							</Button>
 						</Card.Body>
 					</Card>

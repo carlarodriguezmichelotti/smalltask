@@ -14,18 +14,19 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 			<>
 				<Link to={`/task/${_id}`} style={{ textDecoration: 'none' }}>
 					<Container>
-						<Card border='success' style={{ width: '23rem', borderRadius: 3 }} className='taskCardStyle'>
+						<Card border='success' style={{ width: '23rem', height: '19rem', borderRadius: 3 }} className='taskCardStyle'>
 							<Card.Body>
 								<Row>
 									<Col sm={9}>
 										<Card.Title className='taskCardInfo'>{title}</Card.Title>
 									</Col>
 									<Col sm={3}>
-										<Card.Text className='taskCardInfo' style={{ fontSize: '25px' }}>
+										<Card.Text className='taskCardInfo' style={{ fontSize: '23px' }}>
 											<b>{budget}€</b>
 										</Card.Text>
 									</Col>
 								</Row>
+								<br></br>
 								<Row>
 									<Col sm={2}>
 										<Image className='cardImage' src={require('../location-pin.svg')}></Image>
@@ -34,7 +35,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
 									</Col>
 								</Row>
-
+								<br></br>
 								<Row>
 									<Col sm={2}>
 										<Image className='cardImage' src={require('../calendar.svg')}></Image>
@@ -43,13 +44,13 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 										<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>
 									</Col>
 								</Row>
-
+								<br></br>
 								<Row>
-									<Col sm={8}>
-										<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
+									<Col sm={2}>
+										<Image src={creatorimage} style={{ width: '25px', height: '25px' }} className='imgCard' />
 									</Col>
-									<Col sm={4}>
-										<Image src={creatorimage} style={{ width: '50px', height: '50px' }} className='imgCard' />
+									<Col sm={10}>
+										<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
 									</Col>
 								</Row>
 							</Card.Body>
@@ -63,32 +64,51 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 	} else {
 		return (
 			<>
-				<Link to={`/task/${_id}`} style={{ textDecoration: 'none' }}>
-					<Container>
-						<Card border='dark' style={{ width: '23rem' }} className='taskCardStyle'>
-							<Card.Body>
-								<Row>
-									<Col sm={10}>
-										<Card.Title className='taskCardInfo'>{title}</Card.Title>
-									</Col>
-									<Col sm={2}>
-										<Card.Text className='taskCardInfo'>{budget}€</Card.Text>
-									</Col>
-								</Row>
-								<Row>
-									<Col sm={2}>
-										<Image className='cardImage' src={require('../location-pin.svg')}></Image>
-									</Col>
-									<Col sm={10}>
-										<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
-									</Col>
-								</Row>
-								<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
-							</Card.Body>
-							<Card.Footer className='taskCardInfo'>{status}</Card.Footer>
-						</Card>
-					</Container>
-				</Link>
+				<Container>
+					<Card border='dark' style={{ width: '23rem', height: '19rem' }} className='taskCardStyle'>
+						<Card.Body>
+							<Row>
+								<Col sm={9}>
+									<Card.Title className='taskCardInfo'>{title}</Card.Title>
+								</Col>
+								<Col sm={3}>
+									<Card.Text style={{ fontSize: '23px' }} className='taskCardInfo'>
+										<b>{budget}€</b>
+									</Card.Text>
+								</Col>
+							</Row>
+							<br></br>
+							<Row>
+								<Col sm={2}>
+									<Image className='cardImage' src={require('../location-pin.svg')}></Image>
+								</Col>
+								<Col sm={10}>
+									<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
+								</Col>
+							</Row>
+
+							<br></br>
+							<Row>
+								<Col sm={2}>
+									<Image className='cardImage' src={require('../calendar.svg')}></Image>
+								</Col>
+								<Col sm={10}>
+									<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>
+								</Col>
+							</Row>
+							<br></br>
+							<Row>
+								<Col sm={2}>
+									<Image src={creatorimage} style={{ width: '25px', height: '25px' }} className='imgCard' />
+								</Col>
+								<Col sm={10}>
+									<Card.Text className='taskCardInfo'>Posted by: {creatorname}</Card.Text>
+								</Col>
+							</Row>
+						</Card.Body>
+						<Card.Footer className='taskCardInfo'>{status}</Card.Footer>
+					</Card>
+				</Container>
 				<br></br>
 			</>
 		)

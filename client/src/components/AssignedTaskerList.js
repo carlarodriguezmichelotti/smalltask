@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Services from '../services/task.services'
 import AssignedTaskerCard from './AssignedTaskerCard'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class AssignedTaskerList extends Component {
 	constructor(props) {
@@ -26,12 +29,20 @@ class AssignedTaskerList extends Component {
 	render() {
 		return (
 			<>
-				<h1>Assigned As Tasker</h1>
-				{/* {this.props.userInSession.data.username} */}
+				<Container>
+					<Row>
+						<h4>Tasks assigned to you</h4>
+					</Row>
 
-				{this.state.tasks.map(task => (
-					<AssignedTaskerCard key={task._id} {...task} />
-				))}
+					{/* {this.props.userInSession.data.username} */}
+					<Row>
+						<Col md={{ span: 6, offset: 3 }}>
+							{this.state.tasks.map(task => (
+								<AssignedTaskerCard key={task._id} {...task} />
+							))}
+						</Col>
+					</Row>
+				</Container>
 			</>
 		)
 	}

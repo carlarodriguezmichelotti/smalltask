@@ -61,13 +61,25 @@ class Signup extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<h1>Join Us</h1>
-				<form onSubmit={this.handleFormSubmit}>
-					Username: <input name='username' type='text' value={this.state.username} onChange={this.handleInputChange} /> <br />
-					Password: <input name='password' type='password' value={this.state.password} onChange={this.handleInputChange} /> <br />
+				<h1 className='loginTitle allFontFamily'>Join Us</h1>
+				<form onSubmit={this.handleFormSubmit} className='allFontFamily loginForm'>
+					Username:{' '}
+					<input id='loginInputs' name='username' type='text' value={this.state.username} onChange={this.handleInputChange} />{' '}
+					<br />
+					Password:{' '}
+					<input
+						id='loginInputs'
+						name='password'
+						type='password'
+						value={this.state.password}
+						onChange={this.handleInputChange}
+					/>{' '}
+					<br />
+					<br />
 					Image: <input name='imageUrl' type='file' onChange={this.handleFileUpload} />
 					<br />
-					<input type='submit' value='Join SmallTask' />
+					<br></br>
+					<input type='submit' value='Join SmallTask' className='loginButton' />
 				</form>
 			</div>
 		)

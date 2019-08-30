@@ -54,12 +54,12 @@ class TasksList extends Component {
 							<LoggedInNavBar />
 						</Row> */}
 
-						<Row>
-							<h2>All tasks posted by you</h2>
+						<Row className='text-center'>
+							<h4>All tasks posted by you</h4>
 						</Row>
 
 						<Row>
-							<Col sm={4}>
+							<Col md={{ span: 6, offset: 3 }}>
 								{this.state.tasks.map(task => (
 									<MyTaskCard key={task._id} {...task} user={this.props.user} />
 								))}

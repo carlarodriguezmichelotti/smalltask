@@ -45,7 +45,7 @@ class TaskForm extends Component {
 	render() {
 		return (
 			<>
-				<h4>What do you need done?</h4>
+				<h4 className='formTitleStyle'>What do you need done?</h4>
 
 				<hr style={{ width: '100%' }} />
 				<Link to='/my-tasks'>
