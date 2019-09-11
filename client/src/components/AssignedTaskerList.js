@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row'
 class AssignedTaskerList extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { tasks: [] } // showModal: false, showToast: false }
+		this.state = { tasks: [] }
 		this.services = new Services()
 	}
 
@@ -34,7 +34,6 @@ class AssignedTaskerList extends Component {
 						<h4>Tasks assigned to you</h4>
 					</Row>
 
-					{/* {this.props.userInSession.data.username} */}
 					<Row>
 						<Col md={{ span: 6, offset: 3 }}>
 							{this.state.tasks.map(task => (

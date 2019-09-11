@@ -44,7 +44,6 @@ const AssignedTaskerCard = ({ budget, title, creator }) => {
 							Send a message to task poster
 						</Button>
 					</Card.Body>
-					{/* <Card.Footer>{this.props.status}</Card.Footer> */}
 				</Card>
 			</Container>
 		</>

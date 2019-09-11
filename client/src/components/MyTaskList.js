@@ -30,9 +30,6 @@ class TasksList extends Component {
 			return (
 				<>
 					<Container>
-						{/* <Row>
-							<LoggedInNavBar />
-						</Row> */}
 						<Row-text-center>
 							<h4 className='allFontFamily centeralign'>
 								Looks like you haven’t posted a task.<br></br> How about posting one now?
@@ -50,10 +47,6 @@ class TasksList extends Component {
 			return (
 				<>
 					<Container>
-						{/* <Row>
-							<LoggedInNavBar />
-						</Row> */}
-
 						<Row className='text-center'>
 							<h4>All tasks posted by you</h4>
 						</Row>

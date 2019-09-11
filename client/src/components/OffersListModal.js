@@ -13,9 +13,8 @@ class OffersListModal extends Component {
 					<Modal.Title className='allFontFamily' id='example-modal-sizes-title-sm'>
 						Taskers offers
 					</Modal.Title>
-					:￼
 				</Modal.Header>
-				<Modal.Body>
+				<Modal.Body style={{ 'max-height': 'calc(100vh - 210px)', 'overflow-y': 'auto' }}>
 					<OffersList userInSession={this.props.user} taskId={this.props.taskid} />
 				</Modal.Body>
 			</Modal>

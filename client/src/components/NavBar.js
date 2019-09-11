@@ -10,8 +10,6 @@ class NavBar extends Component {
 		this.authServices = new AuthServices()
 	}
 
-	// toggleMenu = () => document.querySelector('.menu').classList.toggle('abierto')
-
 	logout = () => {
 		this.authServices
 			.logout()
@@ -42,10 +40,9 @@ class NavBar extends Component {
 							<Nav.Link className='nav-item' href='/postTask'>
 								New Task
 							</Nav.Link>
-							<Nav.Link className='nav-item' onClick={this.logout}>
+							<Nav.Link className='nav-item' onClick={this.logout} href='/'>
 								Logout
 							</Nav.Link>
-
 							<Navbar.Text className='nav-item-text'> {saludo}</Navbar.Text>
 						</Nav>
 					</Navbar>

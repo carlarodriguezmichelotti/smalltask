@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 import GoogleMapReact from 'google-maps-react'
 import Autocomplete from 'react-google-autocomplete'
-import GoogleMapsStyle from './GoogleMapsStyle.json'
 
 class MapContainer extends Component {
 	constructor(props) {
@@ -21,11 +20,6 @@ class MapContainer extends Component {
 	}
 
 	componentDidMount = () => {
-		//findAll y markers.
-		// set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-
-		// Enable or disable logs. Its optional.
-
 		navigator.geolocation.getCurrentPosition(position => {
 			this.setState({ center: { lat: position.coords.latitude, lng: position.coords.longitude } })
 		})
@@ -33,7 +27,6 @@ class MapContainer extends Component {
 
 	displayMarkers = tasks => {
 		return tasks.map((task, index) => {
-			console.log(task)
 			return (
 				<Marker
 					key={index}
@@ -54,8 +47,6 @@ class MapContainer extends Component {
 				<Autocomplete
 					style={{ width: '500px' }}
 					onPlaceSelected={place => {
-						console.log(parseFloat(place.geometry.location.lat()))
-						console.log(place.formatted_address)
 						this.setState({
 							currentSearch: {
 								lat: parseFloat(place.geometry.location.lat()),
@@ -66,13 +57,7 @@ class MapContainer extends Component {
 					types={['address']}
 					componentRestrictions={{ country: 'es' }}
 				/>
-				<GoogleMapReact
-					google={this.props.google}
-					zoom={8}
-					style={mapStyles}
-					initialCenter={this.state.center}
-					options={{ GoogleMapsStyle }}
-				>
+				<GoogleMapReact google={this.props.google} zoom={10} style={mapStyles} initialCenter={this.state.center}>
 					{this.displayMarkers(this.props.tasks)}
 				</GoogleMapReact>
 			</>
@@ -89,5 +74,4 @@ const mapStyles = {
 
 export default GoogleApiWrapper({
 	apiKey: `${process.env.REACT_APP_APPKEY}`
-	//'AIzaSyDOuDALvzBrOz-Y-iQxy8lPZKvl8yw9ZX4'
 })(MapContainer)

@@ -15,6 +15,52 @@
 	color: #625392;
 	font-size: 15px;
 }
+
+.allbutton {
+	width: 150px;
+	text-align: center;
+	border-color: #282c34;
+	border-width: 0.2px;
+}
+
+.btn-4 {
+	margin-left: 350px;
+	border-radius: 50px;
+	border: 1px solid #24b662;
+	background-color: transparent;
+	color: black;
+	overflow: hidden;
+	font-family: 'Work Sans';
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.btn-4:hover {
+	background: #24b662;
+	color: #fff;
+}
+
+.btn-5 {
+	margin-left: 100px;
+	border-radius: 50px;
+	border: 0.2px rgba(36, 182, 98, 0.7);
+	background-color: transparent;
+	color: black;
+	overflow: hidden;
+	font-family: 'Work Sans';
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.btn-5:hover {
+	background: rgba(36, 182, 98, 0.4);
+	color: #fff;
+}
+
 /*Login*/
 
 .loginTitle {
@@ -96,7 +142,7 @@ button .taskFormButton {
 }
 
 .backArrowD {
-	margin-left: 0px;
+	margin-left: 220px;
 }
 
 /*MyTasks*/
@@ -154,7 +200,14 @@ button .taskFormButton {
 	font-size: 30px;
 	text-align: center;
 	color: rgba(255, 255, 255, 0.6);
-	margin-top: 200px;
+	padding-top: 200px;
+}
+
+.headerOffline {
+	font-family: 'Work Sans';
+	font-size: 30px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .homeMainButton {
@@ -181,6 +234,12 @@ button .taskFormButton {
 	color: white;
 }
 
+/*Task List*/
+
+.taskListSB {
+	height: 600px;
+	overflow-y: scroll;
+}
 /*Task Card*/
 
 .taskCardStyle {
@@ -200,6 +259,11 @@ button .taskFormButton {
 button .detailsButton {
 	background-color: transparent;
 	border-color: black;
+}
+
+/*OfferCard*/
+.offerCard {
+	width: 300px;
 }
 
 /*Card Link*/
@@ -327,5 +391,46 @@ body {
 .linklinkStyle {
 	color: black;
 	font-family: 'Work Sans';
+}
+
+/*Modal Form*/
+
+.modalTitle {
+	padding-top: 25px;
+	text-align: center;
+}
+.modalInput {
+	width: 350px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.modalForm {
+	width: 500px;
+}
+
+.backButton {
+	background-color: transparent;
+	border-color: transparent;
+	width: 40px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.buttonsFormat {
+	padding-bottom: 50px;
+}
+
+.anotherMargin {
+	margin-left: 100px;
+	margin-top: 30px;
+}
+
+/*Details article*/
+
+.details {
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
 }
 /*Prueba botón*/

@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Services from '../services/task.services'
 import OfferFormModal from './OfferFormModal'
+import NewForm from './NewForm'
+import Dialog from '@material-ui/core/Dialog'
 
 // import OfferForm from './OfferForm'
 
 class TaskDetail extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { task: {} }
+		this.state = { task: {}, showModal: false }
 		this.service = new Services()
 	}
 
@@ -26,46 +31,84 @@ class TaskDetail extends Component {
 		this.setState({ showModal: changed })
 	}
 
-	smClose = () => this.setState({ smShow: false })
+	handleModalOpen = () => this.setState({ showModal: true })
+	handleModalClose = () => this.setState({ showModal: false })
+
 	render() {
-		// let lgClose = () => this.setState({ lgShow: false })
-
 		return (
-			<div className='container'>
-				<article>
-					<div className='row justify-content-center'>
-						<div className='col-md-6'>
-							<Link to='/tasks'>
-								<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrowD'></Image>
-							</Link>
-							<h3 className='allFontFamily'> {this.state.task.title} </h3>
-							<p className='allFontFamily'>Details: {this.state.task.description}</p>
-							<hr />
-							<p className='allFontFamily'>Posted by: {this.state.task.creator && this.state.task.creator.username}</p>
-							<p className='allFontFamily'>Location: {this.state.task.place && this.state.task.place.address}</p>
-							<p className='allFontFamily'>Task budget: {this.state.task.budget}</p>
+			<Container>
+				<Link to='/tasks'>
+					<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrowD'></Image>
+				</Link>
+				<article className='details'>
+					<Row>
+						<h3 className='allFontFamily'> {this.state.task.title} </h3>
+					</Row>
+					<Row>
+						<p className='allFontFamily'>Details: {this.state.task.description}</p>
+					</Row>
+					<Row>
+						<p className='allFontFamily'>Status: {this.state.task.status}</p>
+					</Row>
 
-							<p className='allFontFamily'> Due date: {this.state.task.date && this.state.task.date.slice(0, 10)}</p>
-							<small className='allFontFamily'>Status: {this.state.task.status}</small>
-
-							<Button onClick={() => this.setState({ smShow: true })} id='botonTaskForm' className='btn' size='sm' block>
-								Make an offer
-							</Button>
-							{console.log(this.props.userInSession)}
+					<hr></hr>
+					<Row>
+						<Col sm={1}>
 							{this.state.task.creator && (
-								<OfferFormModal
-									show={this.state.smShow}
-									smClose={this.smClose}
-									setUser={this.props.setUser}
-									userInSession={this.props.userInSession}
-									taskowner={this.state.task.creator.username}
-									taskid={this.state.task._id}
-								/>
+								<Image className='imgCard' style={{ width: '25px', height: '25px' }} src={this.state.task.creator.imgUrl}></Image>
 							)}
-						</div>
-					</div>
+						</Col>
+						<Col sm={11}>
+							<p className='allFontFamily'>Posted by: {this.state.task.creator && this.state.task.creator.username}</p>
+						</Col>
+					</Row>
+					<Row>
+						<Col sm={1}>
+							<Image className='cardImage' src={require('../location-pin.svg')}></Image>
+						</Col>
+						<Col sm={11}>
+							<p className='allFontFamily'>Location: {this.state.task.place && this.state.task.place.address}</p>
+						</Col>
+					</Row>
+
+					<Row>
+						<Col sm={1}>
+							<Image className='cardImage' src={require('../money.svg')}></Image>
+						</Col>
+						<Col sm={11}>
+							<p className='allFontFamily'>Task budget: {this.state.task.budget}€</p>
+						</Col>
+					</Row>
+
+					<Row>
+						<Col sm={1}>
+							<Image className='cardImage' src={require('../calendar.svg')}></Image>
+						</Col>
+						<Col sm={11}>
+							<p className='allFontFamily'> Due date: {this.state.task.date && this.state.task.date.slice(0, 10)}</p>
+						</Col>
+					</Row>
+
+					<br></br>
+
+					{this.state.task.creator && (
+						<Dialog onClose={this.handleModalClose} open={this.state.showModal} className='modal-form'>
+							<NewForm
+								closeModal={this.handleModalClose}
+								userInSession={this.props.userInSession}
+								taskowner={this.state.task.creator.username}
+								taskid={this.state.task._id}
+							/>
+						</Dialog>
+					)}
+
+					{this.props.userInSession && (
+						<button className='btn-4 btn-4a' onClick={this.handleModalOpen}>
+							Make an offer
+						</button>
+					)}
 				</article>
-			</div>
+			</Container>
 		)
 	}
 }

@@ -35,7 +35,7 @@ class TasksList extends Component {
 						<br />
 						<br />
 						<div data-spy='scroll'>
-							<Col sm={5}>
+							<Col sm={12} className='taskListSB'>
 								{this.props.userInSession}
 
 								{this.state.tasks.map(task => (
@@ -44,11 +44,6 @@ class TasksList extends Component {
 							</Col>
 						</div>
 
-						{/* <div className='row task-list'>
-						{this.state.tasks.map(task => (
-							<TaskCard key={task._id} {...task} />
-						))}
-					</div> */}
 						<Col>
 							<GoogleApiWrapper tasks={this.state.tasks} />
 						</Col>

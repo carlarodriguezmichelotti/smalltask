@@ -34,16 +34,31 @@ class MyTaskCard extends Component {
 						border='success'
 						style={{ width: '23rem', height: '19rem', borderRadius: 3 }}
 					>
-						<Card.Body className='taskCardInfo'>
-							<Card.Title>{this.props.title}</Card.Title>
-							<Card.Text className='taskCardInfo'>Details: {this.props.description}</Card.Text>
-							<Card.Text className='taskCardInfo'>Date: {this.props.date.slice(0, 10)}</Card.Text>
-							<Card.Text className='taskCardInfo'>Budget: {this.props.budget}€</Card.Text>
+						<Card.Header className='taskCardInfo'>
+							{' '}
+							<b>{this.props.status}</b>
+						</Card.Header>
+						<Card.Body className='text-center taskCardInfo'>
+							<Card.Title>
+								<b>{this.props.title}</b>
+							</Card.Title>
+							<Card.Text className='text-center taskCardInfo'>
+								<b>Details:</b> {this.props.description}
+							</Card.Text>
+							<Card.Text className='text-center taskCardInfo'>
+								<b>Date: </b>
+								{this.props.date.slice(0, 10)}
+							</Card.Text>
+							<Card.Text className='text-center taskCardInfo'>
+								<b>Budget:</b> {this.props.budget}€
+							</Card.Text>
+							<br />
+							<br />
 							<Button onClick={() => this.setState({ showModal: true })} variant='dark' size='sm' block>
 								See Offers
 							</Button>
 						</Card.Body>
-						<Card.Footer>{this.props.status}</Card.Footer>
+						{/* <Card.Footer>{this.props.status}</Card.Footer> */}
 					</Card>
 					<OffersListModal user={this.props.user} show={this.state.showModal} onHide={smClose} taskid={this.props._id} />
 					<br></br>
@@ -52,7 +67,12 @@ class MyTaskCard extends Component {
 		} else {
 			return (
 				<>
-					<Card id='mycardstyle' className='taskCardInfo' border='dark' style={{ width: '23rem', borderRadius: 3 }}>
+					<Card
+						id='mycardstyle'
+						className='taskCardInfo'
+						border='dark'
+						style={{ width: '23rem', height: '19rem', borderRadius: 3 }}
+					>
 						<Card.Header className='taskCardInfo'>
 							{' '}
 							<b>{this.props.status}</b>
@@ -69,6 +89,8 @@ class MyTaskCard extends Component {
 							<Card.Text className='text-center taskCardInfo'>
 								<b>Task assigned to:</b> {this.props.assignedto}
 							</Card.Text>
+							<br />
+							<br />
 							<Button variant='dark' size='sm' block>
 								Send a message to tasker
 							</Button>
@@ -81,51 +103,6 @@ class MyTaskCard extends Component {
 			)
 		}
 	}
-	// const MyTaskCard = ({ title, description, budget, _id, date, status }) => {
-	// 	if (status === 'OPEN') {
-	// 		return (
-	// 			<>
-	// 				<Card border='success' style={{ width: '21rem', borderRadius: 3 }} className='taskCardStyle'>
-	// 					<Card.Body>
-	// 						<Card.Title>
-	// 							<b>{title}</b>
-	// 						</Card.Title>
-	// 						<Card.Text className='taskCardInfo'>{description}</Card.Text>
-	// 						<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>
-	// 						<Card.Text className='taskCardInfo'>{budget}</Card.Text>
-	// 						<Link to={`/task-offers`}>
-	// 							<Button variant='dark' size='sm' block>
-	// 								See Offers
-	// 							</Button>
-	// 						</Link>
-	// 					</Card.Body>
-	// 					<Card.Footer>{status}</Card.Footer>
-	// 				</Card>
-
-	// 				<OffersListModal taskid={_id} />
-	// 				<br></br>
-	// 			</>
-	// 		)
-	// 	} else {
-	// 		return (
-	// 			<>
-	// 				<Card border='dark' style={{ width: '21rem' }}>
-	// 					<Card.Body>
-	// 						<Card.Title>{title}</Card.Title>
-
-	// 						<Link to={`/task-offers`}>
-	// 							<Button variant='dark' size='sm' block>
-	// 								See Offers
-	// 							</Button>
-	// 						</Link>
-	// 					</Card.Body>
-	// 					<Card.Footer>{status}</Card.Footer>
-	// 				</Card>
-
-	// 				<br></br>
-	// 			</>
-	// 		)
-	// 	}
 }
 
 export default MyTaskCard

@@ -66,7 +66,8 @@ class App extends Component {
 				<>
 					<NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
 					<Switch>
-						<Route path='/' exact component={Home} />
+						<Route path='/' exact render={match => <Home {...match} userInSession={this.state.loggedInUser} />} />
+						{/* <Route path='/' exact component={Home} userInSession={this.state.loggedInUser} /> */}
 						<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
 						<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
 					</Switch>
@@ -77,40 +78,41 @@ class App extends Component {
 				<>
 					<NavBar setUser={this.setTheUser} userInSession={this.state.loggedInUser} />
 					<LoggedInNavBar />
-					<div style={{ display: 'flex', width: '100vw' }}>
-						<Switch>
-							<Route path='/' exact component={Home} />
-							<Route path='/profile' exact render={match => <Profile {...match} userInSession={this.state.loggedInUser} />} />
-							<Route path='/my-tasks' exact render={() => <MyTaskList user={this.state.loggedInUser} />} />
-							<Route path='/my-open-tasks' exact component={MyOpenTasksList} />
-							<Route path='/my-assigned-tasks' exact component={MyAssignedTasksList} />
-							<Route
-								path='/assigned-tasker'
-								exact
-								render={match => <AssignedTaskerList {...match} userInSession={this.state.loggedInUser} />}
-							/>
-							<Route path='/task/:id' exact render={match => <TaskDetail {...match} userInSession={this.state.loggedInUser} />} />
-							<Route path='/how-it-works' />
-							<Route path='/tasks' exact component={TasksList} />
-							<Route
-								path='/postTask'
-								exact
-								render={match => <TaskForm {...match} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />}
-							/>
-							<Route path='/task-offers' exact component={OffersList} />
-							<Route path='/offer-details/:id' exact component={OfferDetails} />
-							<Route path='/accept-offer/:taskid/:bidderid' exact component={OffersList} />
-							<Route path='/assigned-tasks' exact render={match => <TaskAssignedList {...match}></TaskAssignedList>} />
+					{/* <div style={{ display: 'flex', width: '100vw' }}> */}
+					<Switch>
+						<Route path='/' exact render={match => <Home {...match} userInSession={this.state.loggedInUser} />} />
+						{/* <Route path='/' exact component={Home} /> */}
+						<Route path='/profile' exact render={match => <Profile {...match} userInSession={this.state.loggedInUser} />} />
+						<Route path='/my-tasks' exact render={() => <MyTaskList user={this.state.loggedInUser} />} />
+						<Route path='/my-open-tasks' exact component={MyOpenTasksList} />
+						<Route path='/my-assigned-tasks' exact component={MyAssignedTasksList} />
+						<Route
+							path='/assigned-tasker'
+							exact
+							render={match => <AssignedTaskerList {...match} userInSession={this.state.loggedInUser} />}
+						/>
+						<Route path='/task/:id' exact render={match => <TaskDetail {...match} userInSession={this.state.loggedInUser} />} />
+						<Route path='/how-it-works' />
+						<Route path='/tasks' exact component={TasksList} />
+						<Route
+							path='/postTask'
+							exact
+							render={match => <TaskForm {...match} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />}
+						/>
+						<Route path='/task-offers' exact component={OffersList} />
+						<Route path='/offer-details/:id' exact component={OfferDetails} />
+						<Route path='/accept-offer/:taskid/:bidderid' exact component={OffersList} />
+						<Route path='/assigned-tasks' exact render={match => <TaskAssignedList {...match}></TaskAssignedList>} />
 
-							{/* <Route
+						{/* <Route
 								path='/postOffer/'
 								exact
 								render={match => <OfferForm {...match} setUser={this.setTheUser} userInSession={this.state.loggedInUser} />}
 							/> */}
-							<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
-							<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
-						</Switch>
-					</div>
+						<Route path='/signup' exact render={match => <Signup {...match} setUser={this.setTheUser} />} />
+						<Route path='/login' exact render={match => <Login {...match} setUser={this.setTheUser} />} />
+					</Switch>
+					{/* </div> */}
 				</>
 			)
 		}

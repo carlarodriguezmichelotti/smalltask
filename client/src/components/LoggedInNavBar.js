@@ -31,15 +31,6 @@ class LoggedInNavBar extends Component {
 					</Nav>
 				</Navbar>
 			</>
-			// <>
-			// 	<Navbar className='navstyle' bg='transparent'>
-			// 		<Nav className='navbarcolor'>
-			// 			<Nav.Link href='/my-tasks'>ALL TASKS</Nav.Link>
-			// 			<Nav.Link href='/my-open-tasks'>POSTED TASKS</Nav.Link>
-			// 			<Nav.Link href='/my-assigned-tasks'>ASSIGNED TASKS</Nav.Link>
-			// 		</Nav>
-			// 	</Navbar>
-			// </>
 		)
 	}
 }
