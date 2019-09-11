@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 
 import axios from 'axios'
 class OfferDetails extends Component {

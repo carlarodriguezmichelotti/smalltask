@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import MyTaskCard from './MyTaskCard'
 import { Link } from 'react-router-dom'
-import LoggedInNavBar from './LoggedInNavBar'
+import LoggedInNavBar from '../LoggedInNavBar'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Spinner from 'react-bootstrap/Spinner'
 
 class MyAssignedTasksList extends Component {
 	constructor() {
 		super()
-		this.state = { tasks: [] } // showModal: false, showToast: false }
+		this.state = { tasks: undefined } // showModal: false, showToast: false }
 		this.services = new Services()
 	}
 
@@ -25,16 +26,14 @@ class MyAssignedTasksList extends Component {
 	}
 
 	render() {
-		if (this.state.tasks.length === 0) {
-			return (
+		if (this.state.tasks) {
+			return this.state.tasks.length === 0 ? (
 				<>
 					{/* <LoggedInNavBar /> */}
 					<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
 					<Link to='/postTask'>Post a task</Link>
 				</>
-			)
-		} else {
-			return (
+			) : (
 				<>
 					<Container>
 						<Row>
@@ -45,12 +44,16 @@ class MyAssignedTasksList extends Component {
 						</Row>
 						<Row>
 							{this.state.tasks.map(task => (
-								<MyTaskCard key={task._id} {...task} />
+								<Col md={{ span: 5, offset: 1 }}>
+									<MyTaskCard key={task._id} {...task} />
+								</Col>
 							))}
 						</Row>
 					</Container>
 				</>
 			)
+		} else {
+			return <Spinner style={{ display: 'block', margin: '0 auto' }} animation='border' />
 		}
 	}
 }

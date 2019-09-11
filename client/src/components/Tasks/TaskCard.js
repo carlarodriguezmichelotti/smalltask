@@ -29,7 +29,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 								<br></br>
 								<Row>
 									<Col sm={2}>
-										<Image className='cardImage' src={require('../location-pin.svg')}></Image>
+										<Image className='cardImage' src={require('../../assets/images/location-pin.svg')}></Image>
 									</Col>
 									<Col sm={10}>
 										<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
@@ -38,7 +38,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 								<br></br>
 								<Row>
 									<Col sm={2}>
-										<Image className='cardImage' src={require('../calendar.svg')}></Image>
+										<Image className='cardImage' src={require('../../assets/images/calendar.svg')}></Image>
 									</Col>
 									<Col sm={10}>
 										<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>
@@ -80,7 +80,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 							<br></br>
 							<Row>
 								<Col sm={2}>
-									<Image className='cardImage' src={require('../location-pin.svg')}></Image>
+									<Image className='cardImage' src={require('../../assets/images/location-pin.svg')}></Image>
 								</Col>
 								<Col sm={10}>
 									<Card.Text className='taskCardInfo'> {place.address}</Card.Text>
@@ -90,7 +90,7 @@ const TaskCard = ({ title, status, budget, _id, place, date, creatorname, creato
 							<br></br>
 							<Row>
 								<Col sm={2}>
-									<Image className='cardImage' src={require('../calendar.svg')}></Image>
+									<Image className='cardImage' src={require('../../assets/images/calendar.svg')}></Image>
 								</Col>
 								<Col sm={10}>
 									<Card.Text className='taskCardInfo'>{date.slice(0, 10)}</Card.Text>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import TaskCard from './TaskCard'
-import GoogleApiWrapper from './Map'
+import GoogleApiWrapper from '../Map'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
+import Spinner from 'react-bootstrap/Spinner'
 
 class TasksList extends Component {
 	constructor() {
@@ -18,7 +19,7 @@ class TasksList extends Component {
 	updateList = () => {
 		this.services
 			.getTasks()
-			.then(response => this.setState({ tasks: response.data }))
+			.then(response => this.setState({ tasks: response.data, ready: true }))
 			.catch(err => console.log(err))
 	}
 
@@ -28,7 +29,7 @@ class TasksList extends Component {
 	handleToastClose = () => this.setState({ showToast: false })
 
 	render() {
-		return (
+		return this.state.tasks.length > 0 ? (
 			<>
 				<Container>
 					<Row>
@@ -50,6 +51,8 @@ class TasksList extends Component {
 					</Row>
 				</Container>
 			</>
+		) : (
+				<Spinner animation='border' style={{ display: 'block', margin: '0 auto' }} />
 		)
 	}
 }

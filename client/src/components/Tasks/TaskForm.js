@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 import Autocomplete from 'react-google-autocomplete'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import Image from 'react-bootstrap/Image'
 import { Link } from 'react-router-dom'
 
@@ -49,7 +49,7 @@ class TaskForm extends Component {
 
 				<hr style={{ width: '100%' }} />
 				<Link to='/my-tasks'>
-					<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrow'></Image>
+					<Image src={require('../../assets/images/left-arrow.svg')} style={{ width: 30 }} className='backArrow'></Image>
 				</Link>
 				<form onSubmit={this.handleFormSubmit} id='newTaskForm' className='taskCardStyle loginForm'>
 					<div className='form-group'>

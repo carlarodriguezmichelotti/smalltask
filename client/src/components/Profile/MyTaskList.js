@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import MyTaskCard from './MyTaskCard'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-import LoggedInNavBar from './LoggedInNavBar'
+import LoggedInNavBar from '../LoggedInNavBar'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Spinner from 'react-bootstrap/Spinner'
 
 class TasksList extends Component {
 	constructor() {
 		super()
-		this.state = { tasks: [] } // showModal: false, showToast: false }
+		this.state = { tasks: undefined } // showModal: false, showToast: false }
 		this.services = new Services()
 	}
 
@@ -26,8 +27,8 @@ class TasksList extends Component {
 	}
 
 	render() {
-		if (this.state.tasks.length === 0) {
-			return (
+		if (this.state.tasks) {
+			return this.state.tasks.length === 0 ? (
 				<>
 					<Container>
 						<Row-text-center>
@@ -42,9 +43,7 @@ class TasksList extends Component {
 						</Button>
 					</Container>
 				</>
-			)
-		} else {
-			return (
+			) : (
 				<>
 					<Container>
 						<Row className='text-center'>
@@ -52,16 +51,18 @@ class TasksList extends Component {
 						</Row>
 
 						<Row>
-							<Col md={{ span: 6, offset: 3 }}>
-								{this.state.tasks.map(task => (
+							{this.state.tasks.map(task => (
+								<Col md={{ span: 5, offset: 1 }}>
 									<MyTaskCard key={task._id} {...task} user={this.props.user} />
-								))}
-							</Col>
+								</Col>
+							))}
 						</Row>
 						<br></br>
 					</Container>
 				</>
 			)
+		} else {
+			return <Spinner style={{ display: 'block', margin: '0 auto' }} animation='border'></Spinner>
 		}
 	}
 }

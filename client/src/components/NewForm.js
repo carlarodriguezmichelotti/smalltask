@@ -34,7 +34,7 @@ class NewForm extends Component {
 		return (
 			<>
 				<button className='backButton' onClick={this.props.closeModal}>
-					<Image src={require('../left-arrow.svg')}></Image>
+					<Image src={require('../assets/images/left-arrow.svg')}></Image>
 				</button>
 
 				<h4 className='allFontFamily modalTitle'>Make an offer</h4>

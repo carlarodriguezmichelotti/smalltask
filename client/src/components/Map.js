@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
 import GoogleMapReact from 'google-maps-react'
 import Autocomplete from 'react-google-autocomplete'
+import TaskInfoWindow from './map/TaskCardInfoWindow'
 
 class MapContainer extends Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			stores: [
-				{ lat: 40.3922718, lng: -3.6985561999999996 }
-				// { lat: 47.359423, lng: -122.021071 },
-				// { lat: 47.2052192687988, lng: -121.988426208496 },
-				// { lat: 47.6307081, lng: -122.1434325 },
-				// { lat: 47.3084488, lng: -122.2140121 },
-				// { lat: 47.5524695, lng: -122.0425407 }
-			]
+			tasks: this.props.tasks,
+			showIW: Array(this.props.tasks.length).fill(false)
 		}
 	}
 
@@ -35,8 +30,41 @@ class MapContainer extends Component {
 						lat: task.place.latitude,
 						lng: task.place.longitude
 					}}
-					onClick={() => console.log('You clicked me!')}
+					onClick={() => {
+						const copy = this.state.showIW
+						copy[index] = !copy[index]
+						this.setState({
+							...this.state,
+							copy
+						})
+					}}
 				/>
+			)
+		})
+	}
+
+	displayInfoWindows = tasks => {
+		return tasks.map((task, index) => {
+			return (
+				<InfoWindow
+					visible={this.state.showIW[index]}
+					onClose={() => {
+						const copy = this.state.showIW
+						copy[index] = !copy[index]
+						this.setState({
+							...this.state,
+							copy
+						})
+					}}
+					position={{
+						lat: task.place.latitude,
+						lng: task.place.longitude
+					}}
+					key={index}
+					id={index}
+				>
+					<TaskInfoWindow creatorname={task.creator.username} creatorimage={task.creator.imgUrl} key={task._id} {...task} />{' '}
+				</InfoWindow>
 			)
 		})
 	}
@@ -59,6 +87,7 @@ class MapContainer extends Component {
 				/>
 				<GoogleMapReact google={this.props.google} zoom={10} style={mapStyles} initialCenter={this.state.center}>
 					{this.displayMarkers(this.props.tasks)}
+					{this.displayInfoWindows(this.props.tasks)}
 				</GoogleMapReact>
 			</>
 		) : (

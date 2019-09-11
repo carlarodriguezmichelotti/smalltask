@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'

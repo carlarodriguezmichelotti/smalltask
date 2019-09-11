@@ -4,10 +4,8 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
-import Services from '../services/task.services'
-import OfferFormModal from './OfferFormModal'
-import NewForm from './NewForm'
+import Services from '../../services/task.services'
+import NewForm from '../NewForm'
 import Dialog from '@material-ui/core/Dialog'
 
 // import OfferForm from './OfferForm'
@@ -38,7 +36,7 @@ class TaskDetail extends Component {
 		return (
 			<Container>
 				<Link to='/tasks'>
-					<Image src={require('../left-arrow.svg')} style={{ width: 30 }} className='backArrowD'></Image>
+					<Image src={require('../../assets/images/left-arrow.svg')} style={{ width: 30 }} className='backArrowD'></Image>
 				</Link>
 				<article className='details'>
 					<Row>
@@ -64,7 +62,7 @@ class TaskDetail extends Component {
 					</Row>
 					<Row>
 						<Col sm={1}>
-							<Image className='cardImage' src={require('../location-pin.svg')}></Image>
+							<Image className='cardImage' src={require('../../assets/images/location-pin.svg')}></Image>
 						</Col>
 						<Col sm={11}>
 							<p className='allFontFamily'>Location: {this.state.task.place && this.state.task.place.address}</p>
@@ -73,7 +71,7 @@ class TaskDetail extends Component {
 
 					<Row>
 						<Col sm={1}>
-							<Image className='cardImage' src={require('../money.svg')}></Image>
+							<Image className='cardImage' src={require('../../assets/images/money.svg')}></Image>
 						</Col>
 						<Col sm={11}>
 							<p className='allFontFamily'>Task budget: {this.state.task.budget}€</p>
@@ -82,7 +80,7 @@ class TaskDetail extends Component {
 
 					<Row>
 						<Col sm={1}>
-							<Image className='cardImage' src={require('../calendar.svg')}></Image>
+							<Image className='cardImage' src={require('../../assets/images/calendar.svg')}></Image>
 						</Col>
 						<Col sm={11}>
 							<p className='allFontFamily'> Due date: {this.state.task.date && this.state.task.date.slice(0, 10)}</p>

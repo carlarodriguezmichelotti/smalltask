@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Image from 'react-bootstrap/Image'
-import OffersListModal from './OffersListModal'
+import OffersListModal from './../Offers/OffersListModal'
 
 class MyTaskCard extends Component {
 	constructor(props) {
@@ -81,7 +81,11 @@ class MyTaskCard extends Component {
 							<Card.Text className='assignedBudget text-center taskCardInfo'>
 								{' '}
 								<b>{this.props.budget}</b>{' '}
-								<Image src={require('../euros.svg')} style={{ width: '30px', height: '30px' }} className='cardImage' />
+								<Image
+									src={require('../../assets/images/euros.svg')}
+									style={{ width: '30px', height: '30px' }}
+									className='cardImage'
+								/>
 							</Card.Text>
 							<Card.Text className='text-center taskCardInfo'>
 								<b>Details:</b> {this.props.title}

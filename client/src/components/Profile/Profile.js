@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import AuthServices from '../services/auth.services'
-import LoggedInNavBar from './LoggedInNavBar'
+import AuthServices from '../../services/auth.services'
+import LoggedInNavBar from '../LoggedInNavBar'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'

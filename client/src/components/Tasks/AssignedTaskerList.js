@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import AssignedTaskerCard from './AssignedTaskerCard'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'

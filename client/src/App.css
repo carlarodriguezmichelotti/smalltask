@@ -434,3 +434,10 @@ body {
 	width: 500px;
 }
 /*Prueba botón*/
+
+#spinner {
+	width: 40px;
+	height: 40px;
+	border: 1px solid black;
+	border-radius: 50%;
+}

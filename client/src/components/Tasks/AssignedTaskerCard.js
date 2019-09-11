@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import Services from '../services/task.services'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
-import OffersListModal from './OffersListModal'
 
 const AssignedTaskerCard = ({ budget, title, creator }) => {
 	return (
@@ -18,7 +15,11 @@ const AssignedTaskerCard = ({ budget, title, creator }) => {
 						<Card.Title>{title}</Card.Title>
 						<Row>
 							<Col sm={{ span: 2, offset: 4 }}>
-								<Image className='imagecandado' src={require('../safe.svg')} style={{ width: '20px', height: '20px' }} />
+								<Image
+									className='imagecandado'
+									src={require('../../assets/images/safe.svg')}
+									style={{ width: '20px', height: '20px' }}
+								/>
 							</Col>
 						</Row>
 						<Row>

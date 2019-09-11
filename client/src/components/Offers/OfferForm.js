@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 
 class OfferForm extends Component {
 	constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Services from '../services/task.services'
+import Services from '../../services/task.services'
 import TaskAssignedCard from './TaskAssignedCard'
 
 class TasksAssignedList extends Component {
