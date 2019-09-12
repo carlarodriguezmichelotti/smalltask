@@ -33,12 +33,6 @@ class TasksAssignedList extends Component {
 				{this.state.tasks.map(task => (
 					<TaskAssignedCard key={task._id} {...task} />
 				))}
-
-				{/* <div className='row task-list'>
-						{this.state.tasks.map(task => (
-							<TaskCard key={task._id} {...task} />
-						))}
-					</div> */}
 			</>
 		)
 	}

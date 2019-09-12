@@ -12,12 +12,7 @@ class MyTaskCard extends Component {
 		this.state = { showModal: false }
 		this.service = new Services()
 	}
-	// componentDidMount() {
-	// 	this.servicesmShow
-	// 		.getOneTask(this.props.key)
-	// 		.then(response => this.setState({ task: response.data }))
-	// 		.catch(err => console.log('err', err))
-	// }
+
 	toogleModal = () => {
 		const changed = !this.state.showModal
 		this.setState({ showModal: changed })
@@ -54,11 +49,16 @@ class MyTaskCard extends Component {
 							</Card.Text>
 							<br />
 							<br />
-							<Button onClick={() => this.setState({ showModal: true })} variant='dark' size='sm' block>
+							<Button
+								style={{ width: 200, marginLeft: 60 }}
+								id='botonTaskForm'
+								onClick={() => this.setState({ showModal: true })}
+								size='sm'
+								block
+							>
 								See Offers
 							</Button>
 						</Card.Body>
-						{/* <Card.Footer>{this.props.status}</Card.Footer> */}
 					</Card>
 					<OffersListModal user={this.props.user} show={this.state.showModal} onHide={smClose} taskid={this.props._id} />
 					<br></br>
@@ -95,7 +95,7 @@ class MyTaskCard extends Component {
 							</Card.Text>
 							<br />
 							<br />
-							<Button variant='dark' size='sm' block>
+							<Button style={{ width: 200, marginLeft: 60 }} id='botonTaskForm' size='sm' block>
 								Send a message to tasker
 							</Button>
 						</Card.Body>

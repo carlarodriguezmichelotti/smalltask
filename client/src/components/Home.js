@@ -13,11 +13,11 @@ const Home = ({ userInSession }) => {
 					<h2 className='profileQuote'>
 						Find the people with the skills <br></br> you need on SmallTask
 					</h2>
-					<Button className='homeMainButton'>
+					{/* <Button className='homeMainButton'>
 						<Link className='homeMainLink' to='/signup'>
-							Get started
+							Post a task
 						</Link>
-					</Button>
+					</Button> */}
 				</div>
 			</>
 		)
@@ -28,11 +28,11 @@ const Home = ({ userInSession }) => {
 					<h2 className='headerOffline'>
 						Find the people with the skills <br></br> you need on SmallTask
 					</h2>
-					<Button className='homeMainButton'>
+					{/* <Button className='homeMainButton'>
 						<Link className='homeMainLink' to='/signup'>
 							Get started
 						</Link>
-					</Button>
+					</Button> */}
 				</div>
 			</>
 		)

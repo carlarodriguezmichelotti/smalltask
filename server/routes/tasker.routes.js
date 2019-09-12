@@ -6,8 +6,6 @@ const User = require('../models/User.model')
 const Offer = require('../models/Offer.model')
 
 router.post('/accept-offer', (req, res) => {
-	// console.log(req.params.taskid, req.params.bidderid)
-	console.log(req.body)
 	Offer.deleteMany({ $and: [{ taskid: req.body.taskId }, { bidderid: { $ne: req.body.bidderId } }] })
 		.then(x => {
 			console.log(x, 'devuelve el delete')

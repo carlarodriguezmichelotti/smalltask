@@ -56,7 +56,6 @@ class NavBar extends Component {
 						<Nav className='justify-content-end' style={{ width: '100%' }}>
 							<Nav.Link href='/signup'>Sign Up</Nav.Link>
 							<Nav.Link href='/login'>Login</Nav.Link>
-							{/* <Navbar.Text>Bienvenid@: {saludo}</Navbar.Text> */}
 						</Nav>
 					</Navbar>
 				</>

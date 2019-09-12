@@ -102,10 +102,6 @@ class TaskForm extends Component {
 					<button type='submit' id='botonTaskForm' className='btn'>
 						Post a task
 					</button>
-
-					{/* <button className='btn btn-dark btn-sm' onClick={this.redirectToMyTasks}>
-						Cerrar
-					</button> */}
 				</form>
 			</>
 		)

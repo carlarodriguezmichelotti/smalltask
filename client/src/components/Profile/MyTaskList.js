@@ -3,8 +3,6 @@ import Services from '../../services/task.services'
 import MyTaskCard from './MyTaskCard'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-
-import LoggedInNavBar from '../LoggedInNavBar'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -47,9 +45,9 @@ class TasksList extends Component {
 				<>
 					<Container>
 						<Row className='text-center'>
-							<h4>All tasks posted by you</h4>
+							<h4 className='allFontFamily'>All tasks posted by you</h4>
 						</Row>
-
+						<br></br>
 						<Row>
 							{this.state.tasks.map(task => (
 								<Col md={{ span: 5, offset: 1 }}>
@@ -62,7 +60,13 @@ class TasksList extends Component {
 				</>
 			)
 		} else {
-			return <Spinner style={{ display: 'block', margin: '0 auto' }} animation='border'></Spinner>
+			return (
+				<Spinner
+					style={{ display: 'block', margin: '0 auto', marginTop: 300 }}
+					className='spinnerStyle'
+					animation='border'
+				></Spinner>
+			)
 		}
 	}
 }

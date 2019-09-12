@@ -115,11 +115,20 @@
 
 #botonTaskForm {
 	background-color: transparent;
-	border-radius: 28px;
+	border-radius: none;
 	border-color: #625392;
 	color: #625392;
-	width: 60%;
-	margin-left: 80px;
+	width: 350px;
+	margin-left: 0px;
+}
+
+#botonTaskForm:hover {
+	background-color: #625392;
+	border-radius: none;
+	border-color: #625392;
+	color: white;
+	width: 350px;
+	margin-left: 0px;
 }
 
 #newTaskForm {
@@ -169,7 +178,8 @@ button .taskFormButton {
 	box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
 }
 #mycardstyle:hover {
-	transform: scale(1.02);
+	transform: scale(1.01);
+	transition-duration: 350ms;
 }
 
 /*Home*/
@@ -184,7 +194,6 @@ button .taskFormButton {
 	width: 100vw;
 	background: linear-gradient(to bottom, rgba(42, 42, 108, 1), rgba(71, 60, 146, 0.73)),
 		url('/fondo1.jpeg') no-repeat fixed center;
-	/* background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url('/fondo1.jpeg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	opacity: 0.8;
@@ -263,7 +272,16 @@ button .detailsButton {
 
 /*OfferCard*/
 .offerCard {
-	width: 300px;
+	width: 500px;
+}
+
+.linea {
+	border: 0;
+	clear: both;
+	display: block;
+	width: 100%;
+	background-color: #dee2e7;
+	height: 1px;
 }
 
 /*Card Link*/
@@ -350,15 +368,18 @@ body {
 }
 
 .fuentecandado {
-	margin-left: 110px;
+	margin-left: 10px;
 	color: black;
+	font-size: 20px;
 }
 .fuentefondos {
-	font-size: 50px;
+	font-size: 35px;
+	font-weight: 200;
+	color: black;
 }
 
 .imagecandado {
-	margin-left: 25px;
+	margin-left: 80px;
 }
 
 .postedByCompleted {
@@ -391,6 +412,7 @@ body {
 .linklinkStyle {
 	color: black;
 	font-family: 'Work Sans';
+	margin-left: 400px;
 }
 
 /*Modal Form*/
@@ -440,4 +462,8 @@ body {
 	height: 40px;
 	border: 1px solid black;
 	border-radius: 50%;
+}
+
+.spinnerStyle {
+	margin-top: 500px;
 }

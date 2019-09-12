@@ -52,7 +52,7 @@ class TasksList extends Component {
 				</Container>
 			</>
 		) : (
-				<Spinner animation='border' style={{ display: 'block', margin: '0 auto' }} />
+				<Spinner animation='border' style={{ display: 'block', margin: '0 auto' , marginTop: 300}} />
 		)
 	}
 }

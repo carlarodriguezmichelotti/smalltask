@@ -10,7 +10,7 @@ import OfferCard from './OfferCard'
 class OffersList extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { offers: [] } // showModal: false, showToast: false }
+		this.state = { offers: [] }
 		this.services = new Services()
 	}
 
@@ -36,8 +36,6 @@ class OffersList extends Component {
 							))}
 						</div>
 					</Row>
-
-					{/* {this.props.userInSession.username} */}
 				</Container>
 			</>
 		)

@@ -8,35 +8,35 @@ import Button from 'react-bootstrap/Button'
 
 const OfferCard = ({ bidderusername, description, budget, _id }) => {
 	return (
-		<div className='col-md-12'>
+		<>
 			<article className='offerCard'>
 				<Container>
 					<Row>
-						<Col sm={1}>
+						<Col sm={2}>
 							<Image className='cardImage' src={require('../../assets/images/user.svg')}></Image>
 						</Col>
 
-						<Col sm={11}>
+						<Col sm={10}>
 							<p className='allFontFamily'>Posted by: {bidderusername}</p>
 						</Col>
 					</Row>
 
 					<Row>
-						<Col sm={1}>
+						<Col sm={2}>
 							<Image className='cardImage' src={require('../../assets/images/speech-bubble.svg')}></Image>
 						</Col>
 
-						<Col sm={11}>
+						<Col sm={10}>
 							<p className='allFontFamily'>Details: {description}</p>
 						</Col>
 					</Row>
 
 					<Row>
-						<Col sm={1}>
-							<Image className='cardImage' src={require('../../assets/images/speech-bubble.svg')}></Image>
+						<Col sm={2}>
+							<Image className='cardImage' src={require('../../assets/images/money.svg')}></Image>
 						</Col>
 
-						<Col sm={11}>
+						<Col sm={10}>
 							<p className='allFontFamily'>Offer: {budget}€</p>
 						</Col>
 					</Row>
@@ -45,10 +45,9 @@ const OfferCard = ({ bidderusername, description, budget, _id }) => {
 				<Link className='linklinkStyle' to={`/offer-details/${_id}`}>
 					See offer
 				</Link>
-
-				<hr />
 			</article>
-		</div>
+			<hr className='linea'></hr>
+		</>
 	)
 }
 

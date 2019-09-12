@@ -26,7 +26,7 @@ class LoggedInNavBar extends Component {
 
 						<NavDropdown className='navstyle' title='AS TASKER' id='basic-nav-dropdown'>
 							<NavDropdown.Item href='/assigned-tasker'>OFFERS PENDING</NavDropdown.Item>
-							<NavDropdown.Item href='/my-open-tasks'>TASKS COMPLETED</NavDropdown.Item>
+							<NavDropdown.Item href='/completed-tasks'>TASKS COMPLETED</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 				</Navbar>

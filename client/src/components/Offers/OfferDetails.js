@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
 import Services from '../../services/task.services'
-
 import axios from 'axios'
+
 class OfferDetails extends Component {
 	constructor(props) {
 		super(props)
@@ -40,30 +44,49 @@ class OfferDetails extends Component {
 
 	render() {
 		return this.state.offer ? (
-			<div className='container'>
-				<article>
-					{console.log(this.state.offer)}
-					<h1>Review offer</h1>
-					<h2>{this.state.offer.bidder.username}</h2>
-					<p>OFFER: {this.state.offer.budget}</p>
-					<p>DESCRIPTION: {this.state.offer.description}</p>
+			<>
+				<article className='allFontFamily'>
+					<Container>
+						<h1 style={{ textAlign: 'center', fontSize: 35 }}>Review offer</h1>
+						<Row style={{ marginLeft: 60 }}>
+							<Col sm={1}>
+								<Image className='cardImage' src={require('../../assets/images/user.svg')}></Image>
+							</Col>
+
+							<Col sm={11}>
+								<p className='allFontFamily'>Posted by: {this.state.offer.bidder.username}</p>
+							</Col>
+						</Row>
+
+						<Row style={{ marginLeft: 60 }}>
+							<Col sm={1}>
+								<Image className='cardImage' src={require('../../assets/images/speech-bubble.svg')}></Image>
+							</Col>
+
+							<Col sm={11}>
+								<p className='allFontFamily'>Details: {this.state.offer.description}</p>
+							</Col>
+						</Row>
+
+						<Row style={{ marginLeft: 60 }}>
+							<Col sm={1}>
+								<Image className='cardImage' src={require('../../assets/images/money.svg')}></Image>
+							</Col>
+
+							<Col sm={11}>
+								<p className='allFontFamily'>Offer: {this.state.offer.budget}€</p>
+							</Col>
+						</Row>
+					</Container>
 				</article>
 
-				{/* <button
-					onClick={() => {
-						this.service.deleteOffer(this.state.offer.taskid, this.state.offer.bidderid), this.redirectToTaskOffers()
-					}}
-				>
-					Accept Offer
-				</button> */}
-
-				<button onClick={() => this.handleOfferClick()} offerinfo={this.state.offer}>
+				<button style={{ marginLeft: 135 }} onClick={() => this.handleOfferClick()} offerinfo={this.state.offer}>
 					{' '}
 					Accept Offer{' '}
 				</button>
-			</div>
+			</>
 		) : (
-			<p>Waiting for the offer~~~</p>
+			<p>Waiting for the offer</p>
 		)
 	}
 }

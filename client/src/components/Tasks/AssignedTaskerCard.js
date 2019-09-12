@@ -12,41 +12,41 @@ const AssignedTaskerCard = ({ budget, title, creator }) => {
 			<Container>
 				<Card border='success' style={{ width: '23rem', borderRadius: 3 }} className='taskCardStyle'>
 					<Card.Body>
-						<Card.Title>{title}</Card.Title>
-						<Row>
-							<Col sm={{ span: 2, offset: 4 }}>
+						<Card.Title>
+							<Row>
 								<Image
 									className='imagecandado'
 									src={require('../../assets/images/safe.svg')}
 									style={{ width: '20px', height: '20px' }}
 								/>
-							</Col>
-						</Row>
-						<Row>
-							<Col>
+
 								<Card.Text className='taskCardInfo fuentecandado'>Funds Secured</Card.Text>
-							</Col>
-						</Row>
+							</Row>
+						</Card.Title>
+
 						<Row>
 							<Col>
-								<Card.Text className=' fuentefondos text-center taskCardInfo'>{budget}€</Card.Text>
+								<Card.Text className='fuentefondos text-center taskCardInfo'>{budget}€</Card.Text>
 							</Col>
 						</Row>
+						<br></br>
 						<Row>
-							<Col sm={10}>
-								<Card.Text className='postedByCompleted'>Posted by: {creator.username}</Card.Text>
-							</Col>
-							<Col sm={2}>
+							<Col style={{ textAlign: 'center' }}>{title}</Col>
+						</Row>
+
+						<Row>
+							<Col style={{ textAlign: 'center' }}>
 								<Image src={creator.imgUrl} className='imgCard' style={{ width: '25px', height: '25px' }}></Image>
 							</Col>
 						</Row>
 						<br></br>
-						<Button variant='dark' size='sm' block>
+						<Button style={{ width: 250, marginLeft: 40 }} id='botonTaskForm' size='sm' block>
 							Send a message to task poster
 						</Button>
 					</Card.Body>
 				</Card>
 			</Container>
+			<br></br>
 		</>
 	)
 }

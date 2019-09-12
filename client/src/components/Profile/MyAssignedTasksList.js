@@ -3,6 +3,7 @@ import Services from '../../services/task.services'
 import MyTaskCard from './MyTaskCard'
 import { Link } from 'react-router-dom'
 import LoggedInNavBar from '../LoggedInNavBar'
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -11,7 +12,7 @@ import Spinner from 'react-bootstrap/Spinner'
 class MyAssignedTasksList extends Component {
 	constructor() {
 		super()
-		this.state = { tasks: undefined } // showModal: false, showToast: false }
+		this.state = { tasks: undefined }
 		this.services = new Services()
 	}
 
@@ -29,19 +30,21 @@ class MyAssignedTasksList extends Component {
 		if (this.state.tasks) {
 			return this.state.tasks.length === 0 ? (
 				<>
-					{/* <LoggedInNavBar /> */}
-					<h3>Looks like you haven’t posted a task. How about posting one now?</h3>
-					<Link to='/postTask'>Post a task</Link>
+					<Container>
+						<Row-text-center>
+							<h4 className='allFontFamily centeralign'>
+								Looks like you haven’t assigned any tasks.<br></br>
+							</h4>
+						</Row-text-center>
+					</Container>
 				</>
 			) : (
 				<>
 					<Container>
 						<Row>
-							<Col>{/* <LoggedInNavBar /> */}</Col>
+							<h4 className='allFontFamily'>Assigned tasks</h4>
 						</Row>
-						<Row>
-							<h1>Assigned tasks</h1>
-						</Row>
+						<br></br>
 						<Row>
 							{this.state.tasks.map(task => (
 								<Col md={{ span: 5, offset: 1 }}>
@@ -53,7 +56,7 @@ class MyAssignedTasksList extends Component {
 				</>
 			)
 		} else {
-			return <Spinner style={{ display: 'block', margin: '0 auto' }} animation='border' />
+			return <Spinner style={{ display: 'block', margin: '0 auto', marginTop: 300 }} animation='border' />
 		}
 	}
 }
